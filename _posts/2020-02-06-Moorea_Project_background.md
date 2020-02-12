@@ -13,9 +13,9 @@ In order to understand re-colonization of these regions this project has multipl
 ### Goal
 1. Use ddRAD to understand population dynamics across sampling sites
 2. Use epiRAD along with ddRAD to understand epigenetic patterns with respect to habitat variables
-###Study site 
+### Study site 
 ![Experimental Design](https://github.com/jpuritz/EPIRAD_Moorea/blob/master/images/exp_design.png?raw=true=300x300)
-###Sampling
+### Sampling
 8 sites sampled with up to 15 samples of Porites (lobata/lutea) and Pocillopora (meandrina/verrucosa) per site.  
 ## Sequencing
 ddRAD and epiRAD with a methylation sensitive restriction enzyme used in epiRAD (Schield et al. 2016).
