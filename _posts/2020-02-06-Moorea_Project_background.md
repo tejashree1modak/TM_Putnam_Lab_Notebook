@@ -5,7 +5,7 @@ tags: [ EpiRAD, ddRAD, Moorea, Pocillopora ]
 ---
 
 # Mo'orea Project Background
-This project is a part of [LTER Network] (http://mcr.lternet.edu/).
+This project is a part of [LTER Network](http://mcr.lternet.edu/).
 Mo'orea is a part of French Polynesia. The coral reef in the northern region of the island was adversely affected by two natural events. However, over time the reef came back to a healthy state.   
 In order to understand re-colonization of these regions this project has multiple layers. 
 1. Studying re colonization patterns in this region has long term and broad applications associated with climate change. 
