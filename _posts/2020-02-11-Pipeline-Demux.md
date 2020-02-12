@@ -9,7 +9,7 @@ tags: [ EpiRAD, ddRAD, Moorea,Pipeline]
  - I copied it from here to my dir tejashree/Moorea/raw_data/
  
 ### Barcode files
-1. Barcode files were made from the csv file on google drive [Moorea_2018_Sampling Adapter/Index Map]((https://docs.google.com/spreadsheets/d/16-kpj1MxpjoXOS4QKDRDBEfBdi5EjDHvGYgChyr6y6A/edit#gid=214392799)
+1. Barcode files were made from the csv file on google drive [Moorea_2018_Sampling Adapter/Index Map](https://docs.google.com/spreadsheets/d/16-kpj1MxpjoXOS4QKDRDBEfBdi5EjDHvGYgChyr6y6A/edit#gid=214392799)
 
 2. Barcode files for renaming STACKS output files for dDocent: dDocent requires barcodes file to rename .fq.gz files as it wants loc_sample.fq.gz.These were generated as before but adding the location name from the shared google drive csv [Moorea_2018_Sampling](https://docs.google.com/spreadsheets/d/16-kpj1MxpjoXOS4QKDRDBEfBdi5EjDHvGYgChyr6y6A/edit#gid=0). An acronym for each location was made as follows: 
 
