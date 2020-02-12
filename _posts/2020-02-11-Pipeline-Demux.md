@@ -25,7 +25,7 @@ Script used: [GitHub](https://github.com/tejashree1modak/EPIRAD_Moorea/blob/mast
 2. Process_radtags: This program examines raw reads from an Illumina sequencing run and first, checks that the barcode and the RAD cutsite are intact, and demultiplexes the data. 
 
 ### Ddocent 
-## Renaming output files from Stacks [GitHub](https://github.com/tejashree1modak/EPIRAD_Moorea/blob/master/Rename_for_dDocent.sh)
+#### Renaming output files from Stacks [GitHub](https://github.com/tejashree1modak/EPIRAD_Moorea/blob/master/Rename_for_dDocent.sh)
 `Rename_for_dDocent.sh`
 Edited the script to handle paired-end barcodes
 
