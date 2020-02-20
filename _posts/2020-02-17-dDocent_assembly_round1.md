@@ -13,5 +13,5 @@ We decided to choose 5 individuals from each of the four locations and start the
 The files for the chosen subset was copied into a new dir called round1/RefOpt housed in the /home/tejashree/Moorea/ddocent/ dir. 
 dDocent was run allowing trimming, type of assembly PE, clustering similarity 0.85%, Minimum within individaul coverage level to include a read for assembly (K1) = 3, Minimum number of individuals a read must be present in to include for assembly (K2) also as 3 since this was the value right before the asympote for both plots. The rest of the parameters were chosen as defaults. The log file round1/ReOpt/dDocent.runs has all the chosen parameters for this run. 
 
-'dDocent assembled 76568 sequences (after cutoffs) into 26666 contigs'
+`dDocent assembled 76568 sequences (after cutoffs) into 26666 contigs`
 
