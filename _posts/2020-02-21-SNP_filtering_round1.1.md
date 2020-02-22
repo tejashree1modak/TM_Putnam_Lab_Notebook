@@ -272,7 +272,7 @@ We have now created a thoroughly filtered VCF, and we should have confidence in 
 
 ` ./ErrorCount.sh SNP.DP3g95p5maf05.HWE.recode.vcf `
 
-` This script counts the number of potential genotyping errors due to low read depth
+``` This script counts the number of potential genotyping errors due to low read depth
 It report a low range, based on a 50% binomial probability of observing the second allele in a heterozygote and a high range based on a 25% probability.
 Potential genotyping errors from genotypes from only 1 read range from 0.0 to 0.0
 Potential genotyping errors from genotypes from only 2 reads range from 0.0 to 0.0
@@ -285,4 +285,4 @@ Total potential error rate is between 0.000493714297604654 and 0.002294634565175
 SCORCHED EARTH SCENARIO
 WHAT IF ALL LOW DEPTH HOMOZYGOTE GENOTYPES ARE ERRORS?????
 The total SCORCHED EARTH error rate is 0.007324466873433914. `
-
+```
