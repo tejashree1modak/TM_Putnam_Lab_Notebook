@@ -180,7 +180,7 @@ After filtering, kept 60278 out of a possible 60278 Sites
 Run Time = 7.00 seconds
 ```
 
-### Allele balance
+### Step5: Allele balance
 Because RADseq targets specific locations of the genome, we expect that the allele balance in our data (for real loci) should be close to 0.5. 
 
 `vcffilter -s -f "AB > 0.25 & AB < 0.75 | AB < 0.01" DP3g95p5maf05.recode.vcf > DP3g95p5maf05.fil1.vcf`
@@ -188,6 +188,7 @@ Because RADseq targets specific locations of the genome, we expect that the alle
 vcffilter works with simple conditional statements, so this filters out loci with an allele balance below 0.25 and above 0.75. However, it does include those that are close to zero. The last condition is to catch loci that are fixed variants (all individuals are homozygous for one of the two variants).
 
 To see how many loci are now in the VCF file, you could feed it into VCFtools or you can just use a simple mawk statement:
+
 `mawk '!/#/' DP3g95p5maf05.recode.vcf | wc -l`
 `60278`
 
@@ -205,6 +206,7 @@ Count again..
 ### Ratio of mapping qualities between reference and alternate alleles
 
 `vcffilter -f "MQM / MQMR > 0.9 & MQM / MQMR < 1.05" DP3g95p5maf05.fil2.vcf > DP3g95p5maf05.fil3.vcf`
+
 `mawk '!/#/' DP3g95p5maf05.fil3.vcf | wc -l`
 `43150`
 
@@ -219,17 +221,21 @@ Count again..
 `vcffilter -f "QUAL / DP > 0.25" DP3g95p5maf05.fil4.vcf > DP3g95p5maf05.fil5.vcf`
 
 Create a list of the depth of each locus.
+
 `cut -f8 DP3g95p5maf05.fil5.vcf | grep -oe "DP=[0-9]*" | sed -s 's/DP=//g' > DP3g95p5maf05.fil5.DEPTH`
 
 The second step is to create a list of quality scores.
+
 `mawk '!/#/' DP3g95p5maf05.fil5.vcf | cut -f1,2,6 > DP3g95p5maf05.fil5.vcf.loci.qual`
 Calculate mean depth
 
 Next step is to calculate the mean depth.
+
 `mawk '{ sum += $1; n++ } END { if (n > 0) print sum / n; }' DP3g95p5maf05.fil5.DEPTH`
 `1861.2`
 
 Now the the mean plus 3X the square of the mean.
+
 `python -c "print int(1861+3*(1861**0.5))"`
 
 `1990`
@@ -241,9 +247,11 @@ Now we can remove those sites and recalculate the depth across loci with VCFtool
 `vcftools --vcf DP3g95p5maf05.fil5.vcf --site-depth --exclude-positions DP3g95p5maf05.fil5.lowQDloci --out DP3g95p5maf05.fil5`
 
 Now let’s take VCFtools output and cut it to only the depth scores.
+
 `cut -f3 DP3g95p5maf05.fil5.ldepth > DP3g95p5maf05.fil5.site.depth`
 
 Now let’s calculate the average depth by dividing the above file by the number of individuals 17.
+
 `mawk '!/D/' DP3g95p5maf05.fil5.site.depth | mawk -v x=17 '{print $1/x}' > meandepthpersite`
 
 ![Histogram](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/Mean_depth_per_site.png)
@@ -258,7 +266,7 @@ After filtering, kept 25255 out of a possible 42460 Sites
 Run Time = 4.00 seconds`
 ```
 
-### HWE filter
+### Step6: HWE filter
 Let’s filter our SNPs by population specific HWE First, we need to convert our variant calls to SNPs To do this we will use another command from vcflib called vcfallelicprimatives.
 `vcfallelicprimitives DP3g95p5maf05.FIL.recode.vcf --keep-info --keep-geno > DP3g95p5maf05.prim.vcf`
 
