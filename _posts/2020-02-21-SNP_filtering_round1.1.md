@@ -121,12 +121,12 @@ WOF_240 WOF
 WOF_243 WOF
 WOF_244 WOF`
 
-Create two lists that have just the individual names for each population
+Create two lists that have just the individual names for each population.
 
 `mawk '$2 == "EOB"' popmap > 1.keep && mawk '$2 == "PBF"' popmap > 2.keep && mawk '$2 == "WOB"' popmap > 3.keep && mawk '$2 == "WOF"' popmap > 4
 .keep`
 
-Use VCFtools to estimate missing data for loci in each population
+Use VCFtools to estimate missing data for loci in each population.
 
 `vcftools --vcf DP3g95maf05.recode.vcf --keep 1.keep --missing-site --out 1`
 `After filtering, kept 5 out of 17 Individuals
@@ -204,34 +204,35 @@ Count again..
 
 `vcffilter -f "QUAL / DP > 0.25" DP3g95p5maf05.fil4.vcf > DP3g95p5maf05.fil5.vcf`
 
-Create a list of the depth of each locus
+Create a list of the depth of each locus.
 `cut -f8 DP3g95p5maf05.fil5.vcf | grep -oe "DP=[0-9]*" | sed -s 's/DP=//g' > DP3g95p5maf05.fil5.DEPTH`
 
 The second step is to create a list of quality scores.
 `mawk '!/#/' DP3g95p5maf05.fil5.vcf | cut -f1,2,6 > DP3g95p5maf05.fil5.vcf.loci.qual`
 Calculate mean depth
 
-Next step is to calculate the mean depth
+Next step is to calculate the mean depth.
 `mawk '{ sum += $1; n++ } END { if (n > 0) print sum / n; }' DP3g95p5maf05.fil5.DEPTH`
 `1861.2`
 
-Now the the mean plus 3X the square of the mean
+Now the the mean plus 3X the square of the mean.
 `python -c "print int(1861+3*(1861**0.5))"`
-1990`
 
-Next we paste the depth and quality files together and find the loci above the cutoff that do not have quality scores 2 times the depth
+`1990`
+
+Next we paste the depth and quality files together and find the loci above the cutoff that do not have quality scores 2 times the depth.
 `paste DP3g95p5maf05.fil5.vcf.loci.qual DP3g95p5maf05.fil5.DEPTH | mawk -v x=1099 '$4 > x' | mawk '$3 < 2 * $4' > DP3g95p5maf05.fil5.lowQDloci`
 
-Now we can remove those sites and recalculate the depth across loci with VCFtools
+Now we can remove those sites and recalculate the depth across loci with VCFtools.
 `vcftools --vcf DP3g95p5maf05.fil5.vcf --site-depth --exclude-positions DP3g95p5maf05.fil5.lowQDloci --out DP3g95p5maf05.fil5`
 
-Now let’s take VCFtools output and cut it to only the depth scores
+Now let’s take VCFtools output and cut it to only the depth scores.
 `cut -f3 DP3g95p5maf05.fil5.ldepth > DP3g95p5maf05.fil5.site.depth`
 
-Now let’s calculate the average depth by dividing the above file by the number of individuals 17
+Now let’s calculate the average depth by dividing the above file by the number of individuals 17.
 `mawk '!/D/' DP3g95p5maf05.fil5.site.depth | mawk -v x=17 '{print $1/x}' > meandepthpersite`
 
-![Mean depth per site] (https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/Mean_depth_per_site.png)
+![Histogram](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/Mean_depth_per_site.png)
 
 Loci that have high mean depth are indicative of either paralogs or multicopy loci. Either way we want to remove them. Here, I’d remove all loci above a mean depth of 102.5. Now we can combine both filters to produce another VCF file.
 
@@ -243,7 +244,7 @@ After filtering, kept 25255 out of a possible 42460 Sites
 Run Time = 4.00 seconds`
 
 ### HWE filter
-Let’s filter our SNPs by population specific HWE First, we need to convert our variant calls to SNPs To do this we will use another command from vcflib called vcfallelicprimatives
+Let’s filter our SNPs by population specific HWE First, we need to convert our variant calls to SNPs To do this we will use another command from vcflib called vcfallelicprimatives.
 `vcfallelicprimitives DP3g95p5maf05.FIL.recode.vcf --keep-info --keep-geno > DP3g95p5maf05.prim.vcf`
 
 This will decompose complex variant calls into phased SNP and INDEL genotypes and keep the INFO flags for loci and genotypes. Next, we can feed this VCF file into VCFtools to remove indels.
@@ -270,6 +271,7 @@ We have now created a thoroughly filtered VCF, and we should have confidence in 
 ### Checking for errors 
 
 ` ./ErrorCount.sh SNP.DP3g95p5maf05.HWE.recode.vcf `
+
 ` This script counts the number of potential genotyping errors due to low read depth
 It report a low range, based on a 50% binomial probability of observing the second allele in a heterozygote and a high range based on a 25% probability.
 Potential genotyping errors from genotypes from only 1 read range from 0.0 to 0.0
