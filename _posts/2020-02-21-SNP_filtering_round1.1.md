@@ -71,7 +71,7 @@ Generating a histogram:
 ![Histogram](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/Histogram%20of%20%25%20missing%20data%20per%20individual.png)
 
 Most of the individuals have less than 0.2 missing data. 
-Create a list of individuals with more than 50% missing data.
+Create a list of individuals with more than 20% missing data.
 
 `mawk '$5 > 0.2' out.imiss | cut -f1 > lowDP.indv`
 
