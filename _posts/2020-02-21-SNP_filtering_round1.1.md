@@ -6,7 +6,7 @@ tags: [ ddRAD, Moorea, dDocent, SNP, filter ]
 
 # SNP filtering 
 
-## As a first round of filtering for the subset data I followed the [ SNP filtering tutorial ](http://www.ddocent.com/filtering/). 
+## As a first round of filtering for the subset data I followed the [ SNP filtering tutorial ](http://www.ddocent.com/filtering/). The filtration is housed in /home/tejashree/Moorea/ddocent/round1/RefOpt/filtering/.  
 
 ### Step1: Three step filter that keep variants that have been successfully genotyped in 50% of individuals, a minimum quality score of 30, and a minor allele count of 3.
 `vcftools --vcf TotalRawSNPs.vcf --max-missing 0.5 --mac 3 --minQ 30 --recode --recode-INFO-all --out TotalRawSNPs_g5mac3.vcf`
@@ -246,29 +246,30 @@ Let’s filter our SNPs by population specific HWE First, we need to convert our
 `vcfallelicprimitives DP3g95p5maf05.FIL.recode.vcf --keep-info --keep-geno > DP3g95p5maf05.prim.vcf`
 
 This will decompose complex variant calls into phased SNP and INDEL genotypes and keep the INFO flags for loci and genotypes. Next, we can feed this VCF file into VCFtools to remove indels.
-`vcftools --vcf DP3g95p5maf05.prim.vcf --remove-indels --recode --recode-INFO-all --out SNP.DP3g95p5maf05`
+` vcftools --vcf DP3g95p5maf05.prim.vcf --remove-indels --recode --recode-INFO-all --out SNP.DP3g95p5maf05 `
 
-`After filtering, kept 17 out of 17 Individuals
+` After filtering, kept 17 out of 17 Individuals
 Outputting VCF file...
 After filtering, kept 26856 out of a possible 28352 Sites
 Run Time = 3.00 seconds`
-We now have 26856 SNP calls in our new VCF.
+We now have 26856 SNP calls in our new VCF. `
 
-Now, let’s apply the HWE filter
-`./filter_hwe_by_pop.pl -v SNP.DP3g95p5maf05.recode.vcf -p popmap -o SNP.DP3g95p5maf05.HWE -h 0.01`
-`Processing population: EOB (5 inds)
+Now, let’s apply the HWE filter.
+
+` ./filter_hwe_by_pop.pl -v SNP.DP3g95p5maf05.recode.vcf -p popmap -o SNP.DP3g95p5maf05.HWE -h 0.01 `
+` Processing population: EOB (5 inds)
 Processing population: PBF (5 inds)
 Processing population: WOB (5 inds)
 Processing population: WOF (5 inds)
 Outputting results of HWE test for filtered loci to 'filtered.hwe'
-Kept 26856 of a possible 26856 loci (filtered 0 loci)`
+Kept 26856 of a possible 26856 loci (filtered 0 loci) `
 
 We have now created a thoroughly filtered VCF, and we should have confidence in these SNP calls.
 
 ### Checking for errors 
 
-`./ErrorCount.sh SNP.DP3g95p5maf05.HWE.recode.vcf`
-`This script counts the number of potential genotyping errors due to low read depth
+` ./ErrorCount.sh SNP.DP3g95p5maf05.HWE.recode.vcf `
+` This script counts the number of potential genotyping errors due to low read depth
 It report a low range, based on a 50% binomial probability of observing the second allele in a heterozygote and a high range based on a 25% probability.
 Potential genotyping errors from genotypes from only 1 read range from 0.0 to 0.0
 Potential genotyping errors from genotypes from only 2 reads range from 0.0 to 0.0
@@ -280,5 +281,5 @@ Total genotypes not counting missing data 456552
 Total potential error rate is between 0.000493714297604654 and 0.002294634565175489
 SCORCHED EARTH SCENARIO
 WHAT IF ALL LOW DEPTH HOMOZYGOTE GENOTYPES ARE ERRORS?????
-The total SCORCHED EARTH error rate is 0.007324466873433914.`
+The total SCORCHED EARTH error rate is 0.007324466873433914. `
 
