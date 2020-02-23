@@ -241,9 +241,11 @@ Now the the mean plus 3X the square of the mean.
 `1990`
 
 Next we paste the depth and quality files together and find the loci above the cutoff that do not have quality scores 2 times the depth.
-`paste DP3g95p5maf05.fil5.vcf.loci.qual DP3g95p5maf05.fil5.DEPTH | mawk -v x=1099 '$4 > x' | mawk '$3 < 2 * $4' > DP3g95p5maf05.fil5.lowQDloci`
+
+`paste DP3g95p5maf05.fil5.vcf.loci.qual DP3g95p5maf05.fil5.DEPTH | mawk -v x=1990 '$4 > x' | mawk '$3 < 2 * $4' > DP3g95p5maf05.fil5.lowQDloci`
 
 Now we can remove those sites and recalculate the depth across loci with VCFtools.
+
 `vcftools --vcf DP3g95p5maf05.fil5.vcf --site-depth --exclude-positions DP3g95p5maf05.fil5.lowQDloci --out DP3g95p5maf05.fil5`
 
 Now let’s take VCFtools output and cut it to only the depth scores.
@@ -268,9 +270,11 @@ Run Time = 4.00 seconds`
 
 ### Step6: HWE filter
 Let’s filter our SNPs by population specific HWE First, we need to convert our variant calls to SNPs To do this we will use another command from vcflib called vcfallelicprimatives.
+
 `vcfallelicprimitives DP3g95p5maf05.FIL.recode.vcf --keep-info --keep-geno > DP3g95p5maf05.prim.vcf`
 
 This will decompose complex variant calls into phased SNP and INDEL genotypes and keep the INFO flags for loci and genotypes. Next, we can feed this VCF file into VCFtools to remove indels.
+
 ` vcftools --vcf DP3g95p5maf05.prim.vcf --remove-indels --recode --recode-INFO-all --out SNP.DP3g95p5maf05 `
 
 ```After filtering, kept 17 out of 17 Individuals
