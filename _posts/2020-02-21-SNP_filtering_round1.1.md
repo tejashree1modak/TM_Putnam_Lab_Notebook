@@ -248,6 +248,12 @@ Now we can remove those sites and recalculate the depth across loci with VCFtool
 
 `vcftools --vcf DP3g95p5maf05.fil5.vcf --site-depth --exclude-positions DP3g95p5maf05.fil5.lowQDloci --out DP3g95p5maf05.fil5`
 
+```After filtering, kept 17 out of 17 Individuals
+Outputting Depth for Each Site
+After filtering, kept 40430 out of a possible 42460 Sites
+Run Time = 1.00 seconds
+```
+
 Now let’s take VCFtools output and cut it to only the depth scores.
 
 `cut -f3 DP3g95p5maf05.fil5.ldepth > DP3g95p5maf05.fil5.site.depth`
