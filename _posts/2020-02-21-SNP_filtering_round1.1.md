@@ -321,3 +321,21 @@ SCORCHED EARTH SCENARIO
 WHAT IF ALL LOW DEPTH HOMOZYGOTE GENOTYPES ARE ERRORS?????
 The total SCORCHED EARTH error rate is 0.007324466873433914. `
 ```
+## SNP filtering summary
+
+|**Step**|**Filtering step**|**SNPs retained**|**Indiv retained**|
+|--------|:-----------------|:----------------|:-----------------|
+|0|Began with|495844|20|
+|1|50% of individuals, a minimum quality score of 30, and a minor allele count of 3|129852|20|
+|2|minimum mean depth|129852|20|
+|3|Missing data|129852|20|
+|4|Remove individuals with missing data at 20%  cutoff|129852|17|
+|5|variants called in a high percentage of individuals (95%) and filter by mean depth of genotypes|60278|17|
+|6|filter by a population specific call rate when multiple localities are present|60278|17|
+|7|Allele balance|50639|17|
+|8|Filter out sites that have reads from both strands|43998|17|
+|9|mapping qualities between reference and alternate alleles|43150|17|
+|10|properly paired status of reads|42495|17|
+|11|removing any locus that has a quality score below 1/4 of the depth|42460|17|
+|12|find the loci above the cutoff that do not have quality scores 2 times the depth|40430|17|
+|13|HWE|26856|17|
