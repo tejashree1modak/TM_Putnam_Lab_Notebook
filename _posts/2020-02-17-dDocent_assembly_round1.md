@@ -15,7 +15,7 @@ dDocent was run allowing trimming, type of assembly PE, clustering similarity 0.
 
 ![Histogram](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/Assembly1_Uniq_seq_coverage.png)
 
-![Histogram] (https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/Assembly1_unique_seq_indiv.png)
+![Histogram](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/Assembly1_unique_seq_indiv.png)
 
 The log file /home/tejashree/Moorea/ddocent/round1/ReOpt/dDocent.runs has all the chosen parameters for this run. 
 
