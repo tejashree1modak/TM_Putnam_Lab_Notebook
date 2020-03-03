@@ -39,6 +39,6 @@ Using the optimal similarity value produced from ReferenceOpt.sh script (0.9) Re
 
 This produced a file called mapping.results that shows the number of contigs, mean properly paired reads at all combinations of K1 and K2 chosen. 
 
-![MappingResults]()
+![MappingResults](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/RefMapOpt_round2.png)
 
 Maximum mean properly paired reads and number of contigs are at K1 = 2 and K2 = 2. 
