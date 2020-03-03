@@ -30,5 +30,15 @@ The kopt.data was used to make the plot below:
 
 ![Histogram](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/Assembly_round2_K1K2.jpeg)
 
+The plot shows 0.9 as the optimal similarity threshold. 
 
+## RefMapOpt.sh 
+Using the optimal similarity value produced from ReferenceOpt.sh script (0.9) RefMapOpt.sh was used to get optimal K1 and K2 values. 
 
+`RefMapOpt.sh 2 6 2 6 0.9 PE 20`
+
+This produced a file called mapping.results that shows the number of contigs, mean properly paired reads at all combinations of K1 and K2 chosen. 
+
+![MappingResults]()
+
+Maximum mean properly paired reads and number of contigs are at K1 = 2 and K2 = 2. 
