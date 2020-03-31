@@ -41,4 +41,4 @@ This produced a file called mapping.results that shows the number of contigs, me
 
 ![MappingResults](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/RefMapOpt_round2.png)
 
-Maximum mean properly paired reads and number of contigs are at K1 = 2 and K2 = 2. 
+Although maximum mean properly paired reads and number of contigs are highest at K1 = 2 and K2 = 2, at k1=5 and k2=2 the number of mismatched reads is the lowest. Also the mean properly paired reads and number of contigs are comparable to K1,K2 =2. Thus we will chose optimum values of K1=5 and K2=2 for the docent run with ALL samples.  
