@@ -14,7 +14,6 @@ I pulled all these together into a single file (present on github repo EPIRAD_Mo
 
 Below are the plots and the samples with extremely low read counts highlighted in red boxes. The chosen cutoff was 400000 raw read counts post process_radtags and docent run. These samples were removed from further analysis.
 
-![plot](https://github.com/jpuritz/EPIRAD_Moorea/blob/master/RAnalysis/Output/dd_vs_epi_plots/Sample.Plots.jpg)
+![plot](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/TechRep_176.jpg)
 
-![plot](https://github.com/jpuritz/EPIRAD_Moorea/blob/master/RAnalysis/Output/dd_vs_epi_plots/TechRep_176.jpg)
-
+![plot](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/Sample.Plots.jpg)
