@@ -6,10 +6,11 @@ tags: [ ddRAD, epiRAD, Moorea, dDocent, SNP, filter ]
 
 ## Step2: Minimum mean depth Testing at 2 values
 With the full dataset testing 2 values of minDP 
+
 ##Minimum mean depth = 5
 
 ```shell
-vcftools --vcf raw.g5mac3.recode.vcf --minDP 5 --recode --recode-INFO-all --out raw.g5mac3dp10
+vcftools --vcf raw.g5mac3.recode.vcf --minDP 5 --recode --recode-INFO-all --out raw.g5mac3dp5
 
 After filtering, kept 124 out of 124 Individuals
 Outputting VCF file...
@@ -87,7 +88,7 @@ WOF_232_epi
 With cutoff at 30%, the number of lowDP indiv are 10
 
 ```shell
-mawk '$5 > 0.25' out.imiss | cut -f1 | less
+mawk '$5 > 0.3' out.imiss | cut -f1 | less
 EOB_182_epi
 EOB_492_ddr
 PBF_159_ddr
@@ -105,6 +106,7 @@ Outputting VCF file...
 After filtering, kept 288777 out of a possible 288777 Sites
 ```
 ## Step2: Minimum mean depth Testing at 2 values
+
 ##Minimum mean depth = 10
 
 ```shell
@@ -118,7 +120,7 @@ After filtering, kept 288777 out of a possible 288777 Sites`
 ### Step3: Filter missing indiv post minDP=10
 
 ```shell
-vcftools --vcf raw.g5mac3dp5.recode.vcf --missing-indv
+vcftools --vcf raw.g5mac3dp10.recode.vcf --missing-indv
 cat out.imiss
 mawk '!/IN/' out.imiss | cut -f5 > totalmissing
 gnuplot << \EOF
@@ -163,33 +165,6 @@ EOF
       0 +-----------------------------------------------------------------------------------------------------------+
        0.1        0.2        0.3       0.4        0.5        0.6        0.7        0.8       0.9         1         1.1
                                                       % of missing data
-```
-
-With cut of 25%, number of lowDP indiv = 20
-
-```
-mawk '$5 > 0.25' out.imiss | cut -f1 | wc -l
-INDV
-EOB_175_ddr
-EOB_178_ddr
-EOB_182_epi
-EOB_184_ddr
-EOB_184_epi
-EOB_492_ddr
-PBF_158_epi
-PBF_159_ddr
-PBF_159_epi
-PBF_161_epi
-PBF_168_ddr
-WOB_35_epi
-WOB_38_ddr
-WOB_45_ddr
-WOB_46_ddr
-WOB_49_epi
-WOB_59_epi
-WOB_61_ddr
-WOB_65_epi
-WOF_232_epi
 ```
 
 With cutoff of 30%, number of lowDP indiv = 12
