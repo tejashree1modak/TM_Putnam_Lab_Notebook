@@ -99,12 +99,136 @@ WOB_45_ddr
 WOB_46_ddr
 WOB_61_ddr
 WOB_65_epi
+```
+Choosing 25% cutoff
 
+```shell
 vcftools --vcf raw.g5mac3dp5.recode.vcf --remove lowDP.indv --recode --recode-INFO-all --out raw.g5mac3dplm
-After filtering, kept 114 out of 124 Individuals
+After filtering, kept 113 out of 124 Individuals
 Outputting VCF file...
 After filtering, kept 288777 out of a possible 288777 Sites
 ```
+### Step4: Restrict the data to variants called in a high percentage of individuals and filter by mean depth of genotypes
+
+This applied a genotype call rate (95%) across all individuals.
+**Setting maf = 0.001**
+
+```shell
+vcftools --vcf raw.g5mac3dplm.recode.vcf --max-missing 0.95 --maf 0.001 --recode --recode-INFO-all --out DP3g95maf001 --min-meanDP 20
+After filtering, kept 113 out of 113 Individuals
+Outputting VCF file...
+After filtering, kept 126456 out of a possible 288777 Sites
+```
+
+### Step5: Filtering by population specific call rate when multiple localities are present
+
+```shell
+cut -f1 out.imiss|awk  -F "_" 'NR>1{print $1"_"$2"_"$3,$1}' > popmap
+cat popmap
+mawk '$2 == "EOB"' popmap > 1.keep && mawk '$2 == "PBF"' popmap > 2.keep && mawk '$2 == "WOB"' popmap > 3.keep && mawk '$2 == "WOF"' popmap > 4.keep
+vcftools --vcf DP3g95maf001.recode.vcf --keep 1.keep --missing-site --out 1
+vcftools --vcf DP3g95maf001.recode.vcf --keep 2.keep --missing-site --out 2
+vcftools --vcf DP3g95maf001.recode.vcf --keep 3.keep --missing-site --out 3
+vcftools --vcf DP3g95maf001.recode.vcf --keep 4.keep --missing-site --out 4
+cat 1.lmiss 2.lmiss 3.lmiss 4.lmiss | mawk '!/CHR/' | mawk '$6 > 0.1' | cut -f1,2 >> badloci
+vcftools --vcf DP3g95maf001.recode.vcf --exclude-positions badloci --recode --recode-INFO-all --out DP3g95p5maf001
+After filtering, kept 113 out of 113 Individuals
+Outputting VCF file...
+After filtering, kept 121233 out of a possible 126456 Sites
+```
+
+### Step6: Used dDocent_filters script
+
+```shell
+./dDocent_filters DP3g95p5maf05.recode.vcf dDocent_filters_out
+
+Number of sites filtered based on allele balance at heterozygous loci, locus quality, and mapping quality / Depth
+ 18603 of 121233
+
+Are reads expected to overlap?  In other words, is fragment size less than 2X the read length?  Enter yes or no.
+no
+Number of additional sites filtered based on overlapping forward and reverse reads
+12091 of 102630
+
+Is this from a mixture of SE and PE libraries? Enter yes or no.
+no
+Number of additional sites filtered based on properly paired status
+1815 of 90539
+
+Number of sites filtered based on high depth and lower than 2*DEPTH quality score
+ 7746 of 88724
+
+                                               Histogram of mean depth per site
+
+     1200 +---------------------------------------------------------------------------------------------------------+
+          |     +    +    +    +     +    +    +    +     +    +    +     +    +    +    +     +    +    +    +     |
+          |                                               'meandepthpersite' using (bin($1,binwidth)):(1.0) ******* |
+          |                                                 * *                                                     |
+     1000 |-+                                     *** ** ** * *                                                   +-|
+          |                                     * *** **********                                                    |
+          |                                     * **************                                                    |
+          |                            *     **********************                                                 |
+      800 |-+                          *    ************************                                              +-|
+          |                            *  * **************************                                              |
+          |                          *** ****************************** **                                          |
+      600 |-+                        *** *********************************                                        +-|
+          |                          **************************************                                         |
+          |                         **************************************** ***                                    |
+          |                       ********************************************** **                                 |
+      400 |-+                     *************************************************                               +-|
+          |                     ***************************************************                                 |
+          |                    **********************************************************                           |
+          |                 ***************************************************************                         |
+      200 |-+             ******************************************************************                      +-|
+          |           *************************************************************************  *                  |
+          |         ********************************************************************************   ***** **     |
+          |     +  *************************************************************************************************|
+        0 +---------------------------------------------------------------------------------------------------------+
+          11    22   33   44   55    66   77   88   99   110  121  132   143  154  165  176   187  198  209  220   231
+                                                          Mean Depth
+
+If distrubtion looks normal, a 1.645 sigma cutoff (~90% of the data) would be 25233.65575
+The 95% cutoff would be 211
+Would you like to use a different maximum mean depth cutoff than 211, yes or no
+no
+Number of sites filtered based on maximum mean depth
+ 5198 of 88724
+
+Number of sites filtered based on within locus depth mismatch
+ 26 of 83526
+
+Total number of sites filtered
+ 37733 of 121233
+
+Remaining sites
+ 83500
+
+```
+
+### Step7: Convert our variant calls to SNPs
+
+```shell
+
+vcfallelicprimitives dDocent_filters_out.FIL.recode.vcf --keep-info --keep-geno > DP3g95p5maf001.prim.vcf
+vcftools --vcf DP3g95p5maf001.prim.vcf --remove-indels --recode --recode-INFO-all --out SNP.DP3g95p5maf001
+
+After filtering, kept 113 out of 113 Individuals
+Outputting VCF file...
+After filtering, kept 90992 out of a possible 95915 Sites
+```
+### Step8: HWE filter
+**Setting -h 0.001**
+```shell
+ .././filter_hwe_by_pop.pl -v SNP.DP3g95p5maf001.recode.vcf -p popmap -o SNP.DP3g95p5maf001.HWE -h 0.001
+Processing population: EOB (36 inds)
+Processing population: PBF (30 inds)
+Processing population: WOB (30 inds)
+Processing population: WOF (28 inds)
+Outputting results of HWE test for filtered loci to 'filtered.hwe'
+Kept 87172 of a possible 90992 loci (filtered 3820 loci)
+```
+## With minDP = 5, maf = 0.001 and h = 0.001 : 87172 loci kept
+
 ## Step2: Minimum mean depth Testing at 2 values
 
 ## Minimum mean depth = 10
