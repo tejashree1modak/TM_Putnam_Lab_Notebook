@@ -115,9 +115,13 @@ We  want to filter by a population specific call rate.First we need a file to de
 ```shell
 cut -f1 out.imiss|awk  -F "_" 'NR>1{print $1"_"$2"_"$3,$1}' > popmap
 cat popmap
-mawk '$2 == "EOB"' popmap > 1.keep && mawk '$2 == "PBF"' popmap > 2.keep && mawk '$2 == "WOB"' popmap > 3.keep && mawk '$2 == "WOF"' popmap > 4.keep                                                        vcftools --vcf DP3g95maf05.recode.vcf --keep 1.keep --missing-site --out 1
-vcftools --vcf DP3g95maf05.recode.vcf --keep 2.keep --missing-site --out 2                                                                                                                                  vcftools --vcf DP3g95maf05.recode.vcf --keep 3.keep --missing-site --out 3
-vcftools --vcf DP3g95maf05.recode.vcf --keep 4.keep --missing-site --out 4                                                                                                                                  cat 1.lmiss 2.lmiss 3.lmiss 4.lmiss | mawk '!/CHR/' | mawk '$6 > 0.1' | cut -f1,2 >> badloci
+mawk '$2 == "EOB"' popmap > 1.keep && mawk '$2 == "PBF"' popmap > 2.keep && mawk '$2 == "WOB"' popmap > 3.keep && mawk '$2 == "WOF"' popmap > 4.keep                                         
+
+vcftools --vcf DP3g95maf05.recode.vcf --keep 1.keep --missing-site --out 1
+vcftools --vcf DP3g95maf05.recode.vcf --keep 2.keep --missing-site --out 2                                                                                                                     
+vcftools --vcf DP3g95maf05.recode.vcf --keep 3.keep --missing-site --out 3
+vcftools --vcf DP3g95maf05.recode.vcf --keep 4.keep --missing-site --out 4                                                                                                                     
+cat 1.lmiss 2.lmiss 3.lmiss 4.lmiss | mawk '!/CHR/' | mawk '$6 > 0.1' | cut -f1,2 >> badloci
 vcftools --vcf DP3g95maf05.recode.vcf --exclude-positions badloci --recode --recode-INFO-all --out DP3g95p5maf05
 
 After filtering, kept 117 out of 117 Individuals
