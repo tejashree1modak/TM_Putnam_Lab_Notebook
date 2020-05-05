@@ -7,7 +7,7 @@ tags: [ ddRAD, epiRAD, Moorea, dDocent, SNP, filter ]
 ## Step2: Minimum mean depth Testing at 2 values
 With the full dataset testing 2 values of minDP 
 
-##Minimum mean depth = 5
+## Minimum mean depth = 5
 
 ```shell
 vcftools --vcf raw.g5mac3.recode.vcf --minDP 5 --recode --recode-INFO-all --out raw.g5mac3dp5
@@ -107,7 +107,7 @@ After filtering, kept 288777 out of a possible 288777 Sites
 ```
 ## Step2: Minimum mean depth Testing at 2 values
 
-##Minimum mean depth = 10
+## Minimum mean depth = 10
 
 ```shell
 vcftools --vcf raw.g5mac3.recode.vcf --minDP 10 --recode --recode-INFO-all --out raw.g5mac3dp10
