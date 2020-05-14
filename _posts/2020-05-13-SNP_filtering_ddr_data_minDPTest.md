@@ -197,7 +197,7 @@ Processing population: WOF (14 inds)
 Outputting results of HWE test for filtered loci to 'filtered.hwe'
 Kept 66843 of a possible 68799 loci (filtered 1956 loci)
 ```
-With minDP = 5, maf = 0.001 and h = 0.001 : 68799 loci kept with 58 indiv
+## Result with minDP = 5, maf = 0.001 and h = 0.001 : 68799 loci kept with 58 indiv
 
 ## Step2: Minimum mean depth Testing at 2 values
 Minimum mean depth = 10
@@ -388,4 +388,4 @@ Outputting results of HWE test for filtered loci to 'filtered.hwe'
 Kept 66406 of a possible 68115 loci (filtered 1709 loci)
 ```
 
-With minDP = 10, maf = 0.001 and h = 0.001 : 66406 loci kept with 54 indiv
+## Result with minDP = 10, maf = 0.001 and h = 0.001 : 66406 loci kept with 54 indiv
