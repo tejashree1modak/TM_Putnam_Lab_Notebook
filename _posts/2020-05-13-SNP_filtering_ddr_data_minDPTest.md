@@ -4,7 +4,7 @@ title: SNP filtering ddRAD data set post trimming, assembly and mapping
 tags: [ ddRAD, epiRAD, Moorea, dDocent, SNP, filter ]
 ---
 
-#Step1: 50% of individuals, a minimum quality score of 30, and a minor allele count of 3
+## Step1: 50% of individuals, a minimum quality score of 30, and a minor allele count of 3
 
 vcftools --vcf TotalRawSNPs.vcf --max-missing 0.5 --mac 3 --minQ 30 --recode --recode-INFO-all --out raw.g5mac3
 
