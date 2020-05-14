@@ -259,14 +259,12 @@ After filtering, kept 218805 out of a possible 218805 Sites
 Choosing 85% cutof
 
 ```shell
-mawk '$5 > 0.268' raw.g5mac3dplm.imiss | cut -f1 | less
-
-INDV
+mawk '$5 > 0.268705' raw.g5mac3dplm.imiss | cut -f1 | less
+NDV
 EOB_178_ddr
 EOB_184_ddr
 EOB_492_ddr
 PBF_159_ddr
-PBF_168_ddr
 WOB_38_ddr
 WOB_45_ddr
 WOB_46_ddr
