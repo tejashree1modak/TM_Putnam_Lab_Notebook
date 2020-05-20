@@ -197,8 +197,110 @@ Processing population: WOF (14 inds)
 Outputting results of HWE test for filtered loci to 'filtered.hwe'
 Kept 66843 of a possible 68799 loci (filtered 1956 loci)
 ```
-## Result with minDP = 5, maf = 0.001 and h = 0.001 : 68799 loci kept with 58 indiv
 
+## rad_haplotyper
+
+```shell
+rad_haplotyper.pl -v SNP.DP3g95p5maf001.HWE.recode.vcf -x 20 -mp 1 -u 20 -ml 4 -n -r reference.fasta
+
+emoved 258 loci (6358 SNPs) with more than 20 SNPs at a locus
+Building haplotypes for EOB_174_ddr
+Building haplotypes for EOB_175_ddr
+Building haplotypes for EOB_176_ddr
+Building haplotypes for EOB_177_ddr
+Building haplotypes for EOB_178_ddr
+Building haplotypes for EOB_182_ddr
+Building haplotypes for EOB_183_ddr
+Building haplotypes for EOB_184_ddr
+Building haplotypes for EOB_185_ddr
+Building haplotypes for EOB_186_ddr
+Building haplotypes for EOB_188_ddr
+Building haplotypes for EOB_189_ddr
+Building haplotypes for EOB_190_ddr
+Building haplotypes for EOB_191_ddr
+Building haplotypes for EOB_192_ddr
+Building haplotypes for EOB_492_ddr
+Building haplotypes for EOB_493_ddr
+Building haplotypes for EOB_494_ddr
+Building haplotypes for PBF_157_ddr
+Building haplotypes for PBF_158_ddr
+Building haplotypes for PBF_160_ddr
+Building haplotypes for PBF_161_ddr
+Building haplotypes for PBF_164_ddr
+Building haplotypes for PBF_165_ddr
+Building haplotypes for PBF_167_ddr
+Building haplotypes for PBF_168_ddr                                                                                                                                                         
+Building haplotypes for PBF_169_ddr
+Building haplotypes for PBF_171_ddr
+Building haplotypes for PBF_172_ddr
+Building haplotypes for PBF_489_ddr
+Building haplotypes for PBF_490_ddr
+Building haplotypes for PBF_491_ddr
+Building haplotypes for WOB_35_ddr
+Building haplotypes for WOB_41_ddr
+Building haplotypes for WOB_42_ddr
+Building haplotypes for WOB_45_ddr
+Building haplotypes for WOB_47_ddr
+Building haplotypes for WOB_48_ddr
+Building haplotypes for WOB_49_ddr
+Building haplotypes for WOB_50_ddr
+Building haplotypes for WOB_59_ddr
+Building haplotypes for WOB_60_ddr
+Building haplotypes for WOB_62_ddr
+Building haplotypes for WOB_65_ddr
+Building haplotypes for WOF_217_ddr
+Building haplotypes for WOF_224_ddr
+Building haplotypes for WOF_225_ddr
+Building haplotypes for WOF_232_ddr
+Building haplotypes for WOF_234_ddr
+Building haplotypes for WOF_236_ddr
+Building haplotypes for WOF_237_ddr
+Building haplotypes for WOF_238_ddr
+Building haplotypes for WOF_239_ddr
+Building haplotypes for WOF_240_ddr
+Building haplotypes for WOF_241_ddr
+Building haplotypes for WOF_243_ddr
+Building haplotypes for WOF_244_ddr
+Building haplotypes for WOF_245_ddr
+Filtered 20 loci below missing data cutoff
+Filtered 904 possible paralogs
+Filtered 425 loci with low coverage or genotyping errors
+Filtered 0 loci with an excess of haplotypes
+```
+
+The script found another 1349 loci to remove.
+
+```shell
+head stats.out
+rad_haplotyper -v SNP.DP3g95p5maf001.HWE.recode.vcf -x 20 -mp 1 -u 20 -ml 4 -n -r reference.fasta
+Locus   Sites   Haplotypes      Inds_Haplotyped Total_Inds      Prop_Haplotyped Status  Poss_Paralog    Low_Cov/Geno_Err        Miss_Geno       Comment
+dDocent_Contig_1        7       4       52      58      0.897   FILTERED        6       0       0       Possible paralog
+dDocent_Contig_100      2       3       58      58      1.000   PASSED  0       0       0
+dDocent_Contig_10003    5       9       57      58      0.983   PASSED  0       0       1
+dDocent_Contig_10004    13      12      58      58      1.000   PASSED  0       0       0
+dDocent_Contig_10008    8       10      58      58      1.000   PASSED  0       0       0
+dDocent_Contig_10010    15      11      57      58      0.983   PASSED  0       0       1
+dDocent_Contig_10011    4       3       58      58      1.000   PASSED  0       0       0
+dDocent_Contig_10012    10      8       58      58      1.000   PASSED  0       0       0
+```
+We can use this file to create a list of loci to filter
+
+```shell
+grep FILTERED stats.out | mawk '!/Complex/' | cut -f1 > loci.to.remove
+```
+
+## Remove bad loci identified by rad_haplotyper
+Now that we have the list we can parse through the VCF file and remove the bad RAD loci. Use script from dDocent to do this: remove.bad.hap.loci.sh
+
+```shell
+./remove.bad.hap.loci.sh loci.to.remove SNP.DP3g95p5maf001.HWE.recode.vcf
+mawk '!/#/' SNP.DP3g95p5maf001.HWE.filtered.vcf | wc -l
+46612
+```
+## Result with minDP = 5, maf = 0.001 and h = 0.001 : 68799 loci kept with 58 indiv
+## After the last step we have 46612 SNPs. 
+
+## Repeating all the above steps with minDP10
 ## Step2: Minimum mean depth Testing at 2 values
 Minimum mean depth = 10
 
@@ -386,4 +488,102 @@ Outputting results of HWE test for filtered loci to 'filtered.hwe'
 Kept 66406 of a possible 68115 loci (filtered 1709 loci)
 ```
 
-## Result with minDP = 10, maf = 0.001 and h = 0.001 : 66406 loci kept with 54 indiv
+## rad_haplotyper
+
+```shell
+rad_haplotyper.pl -v SNP.DP3g95p5maf001.HWE.recode.vcf  -x 20 -mp 1 -u 20 -ml 4 -n -r reference.fasta
+Removed 257 loci (6327 SNPs) with more than 20 SNPs at a locus
+Building haplotypes for EOB_174_ddr
+Building haplotypes for EOB_175_ddr
+Building haplotypes for EOB_176_ddr
+Building haplotypes for EOB_177_ddr
+Building haplotypes for EOB_182_ddr
+Building haplotypes for EOB_183_ddr
+Building haplotypes for EOB_185_ddr
+Building haplotypes for EOB_186_ddr
+Building haplotypes for EOB_188_ddr
+Building haplotypes for EOB_189_ddr
+Building haplotypes for EOB_190_ddr
+Building haplotypes for EOB_191_ddr
+Building haplotypes for EOB_192_ddr
+Building haplotypes for EOB_493_ddr
+Building haplotypes for EOB_494_ddr
+Building haplotypes for PBF_157_ddr
+Building haplotypes for PBF_158_ddr
+Building haplotypes for PBF_160_ddr
+Building haplotypes for PBF_161_ddr
+Building haplotypes for PBF_164_ddr
+Building haplotypes for PBF_165_ddr
+Building haplotypes for PBF_167_ddr
+Building haplotypes for PBF_168_ddr
+Building haplotypes for PBF_169_ddr
+Building haplotypes for PBF_171_ddr
+Building haplotypes for PBF_172_ddr
+Building haplotypes for PBF_489_ddr
+Building haplotypes for PBF_490_ddr
+Building haplotypes for PBF_491_ddr
+Building haplotypes for WOB_35_ddr
+Building haplotypes for WOB_41_ddr
+Building haplotypes for WOB_42_ddr
+Building haplotypes for WOB_47_ddr
+Building haplotypes for WOB_48_ddr
+Building haplotypes for WOB_49_ddr
+Building haplotypes for WOB_50_ddr
+Building haplotypes for WOB_59_ddr
+Building haplotypes for WOB_60_ddr
+Building haplotypes for WOB_62_ddr
+Building haplotypes for WOB_65_ddr
+Building haplotypes for WOF_217_ddr
+Building haplotypes for WOF_224_ddr
+Building haplotypes for WOF_225_ddr
+Building haplotypes for WOF_232_ddr
+Building haplotypes for WOF_234_ddr
+Building haplotypes for WOF_236_ddr
+Building haplotypes for WOF_237_ddr
+Building haplotypes for WOF_238_ddr
+Building haplotypes for WOF_239_ddr
+Building haplotypes for WOF_240_ddr
+Building haplotypes for WOF_241_ddr
+Building haplotypes for WOF_243_ddr
+Building haplotypes for WOF_244_ddr
+Building haplotypes for WOF_245_ddr
+Filtered 13 loci below missing data cutoff
+Filtered 911 possible paralogs
+Filtered 396 loci with low coverage or genotyping errors
+Filtered 0 loci with an excess of haplotypes
+```
+The script found another 1320 loci to remove.
+
+```shell
+head stats.out
+rad_haplotyper -v SNP.DP3g95p5maf001.HWE.recode.vcf -x 20 -mp 1 -u 20 -ml 4 -n -r reference.fasta
+Locus   Sites   Haplotypes      Inds_Haplotyped Total_Inds      Prop_Haplotyped Status  Poss_Paralog    Low_Cov/Geno_Err        Miss_Geno       Comment
+dDocent_Contig_1        7       4       48      54      0.889   FILTERED        6       0       0       Possible paralog
+dDocent_Contig_100      2       3       54      54      1.000   PASSED  0       0       0
+dDocent_Contig_10003    5       9       54      54      1.000   PASSED  0       0       0
+dDocent_Contig_10004    13      11      54      54      1.000   PASSED  0       0       0
+dDocent_Contig_10006    2       3       52      54      0.963   PASSED  0       0       2
+dDocent_Contig_10008    8       10      54      54      1.000   PASSED  0       0       0
+dDocent_Contig_10010    3       4       52      54      0.963   PASSED  0       0       2
+dDocent_Contig_10011    4       3       54      54      1.000   PASSED  0       0       0
+```
+We can use this file to create a list of loci to filter
+
+```shell
+grep FILTERED stats.out | mawk '!/Complex/' | cut -f1 > loci.to.remove
+```
+## Remove bad loci identified by rad_haplotyper
+
+```shell
+./remove.bad.hap.loci.sh loci.to.remove
+mawk '!/#/' SNP.DP3g95p5maf001.HWE.filtered.vcf | wc -l
+46610
+```
+
+## With minDP = 5, maf = 0.001 and h = 0.001 : 68799 loci kept with 58 indiv
+## After the rad_haplotyper step we have 46612 SNPs. 
+
+## With minDP = 10, maf = 0.001 and h = 0.001 : 66406 loci kept with 54 indiv
+## After the rad_haplotyper step we have  46610 SNPs 
+
+## Result: With minDP 5 we keep more individuals and get about the same number of SNPs as minDP10. 
