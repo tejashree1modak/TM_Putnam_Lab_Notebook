@@ -580,10 +580,10 @@ mawk '!/#/' SNP.DP3g95p5maf001.HWE.filtered.vcf | wc -l
 46610
 ```
 
-## With minDP = 5, maf = 0.001 and h = 0.001 : 68799 loci kept with 58 indiv
-## After the rad_haplotyper step we have 46612 SNPs. 
+### With minDP = 5, maf = 0.001 and h = 0.001 : 68799 loci kept with 58 indiv
+### After the rad_haplotyper step we have 46612 SNPs. 
 
-## With minDP = 10, maf = 0.001 and h = 0.001 : 66406 loci kept with 54 indiv
-## After the rad_haplotyper step we have  46610 SNPs 
+### With minDP = 10, maf = 0.001 and h = 0.001 : 66406 loci kept with 54 indiv
+### After the rad_haplotyper step we have  46610 SNPs 
 
-## Result: With minDP 5 we keep more individuals and get about the same number of SNPs as minDP10. 
+### Result: With minDP 5 we keep more individuals and get about the same number of SNPs as minDP10. 
