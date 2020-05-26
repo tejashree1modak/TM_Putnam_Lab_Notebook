@@ -62,7 +62,7 @@ After filtering, kept 58 out of 62 Individuals
 Outputting VCF file...
 After filtering, kept 218805 out of a possible 218805 Sites
 ```
-Choosing 70% cutof
+Choosing 65% cutof
 
 ```shell
 mawk '$5 > 0.35' raw.g5mac3dplm.imiss | cut -f1 | less
@@ -358,7 +358,7 @@ Outputting VCF file...
 After filtering, kept 218805 out of a possible 218805 Sites
 ```
 
-Choosing 85% cutof
+Choosing 85% cutoff
 
 ```shell
 mawk '$5 > 0.268705' raw.g5mac3dplm.imiss | cut -f1 | less
