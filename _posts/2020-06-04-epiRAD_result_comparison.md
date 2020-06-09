@@ -38,3 +38,9 @@ Filter4             |  Filter5a                       | Filter5b
 Filter4             |  Filter5a                       | Filter5b
 :-------------------------:|:-------------------------:|:------:
 ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter4_percent_CpGmethyln.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter5a_percent_CpGmethyln.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter5b_percent_CpGmethyln.png)
+
+## Result5: Pst
+
+Filter4             |  Filter5a                       | Filter5b
+:-------------------------:|:-------------------------:|:------:
+![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter4_Pst.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter5a_Pst.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter5b_Pst.png)
