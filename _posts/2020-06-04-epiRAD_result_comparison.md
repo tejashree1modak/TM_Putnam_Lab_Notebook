@@ -41,8 +41,9 @@ Filter4             |  Filter5a                       | Filter5b
 
 ## Result5: Pst 
 
-|        |Filter4   |  Filter5a |Filter5b  |
-|Mean Pst|0.00440542|0.01522    |0.01963305|
+|         | Filter4    | Filter5a | Filter5b  |
+|---------|------------|----------|-----------|
+| Mean Pst| 0.00440542 | 0.01522  | 0.01963305|
 
 Filter4             |  Filter5a                       | Filter5b
 :-------------------------:|:-------------------------:|:----------:
