@@ -37,7 +37,7 @@ Filter4             |  Filter5a                       | Filter5b
 
 Filter4             |  Filter5a                       | Filter5b
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter4_percent_CpGmethyln.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter5a_percent_CpGmethyln.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter5b_percent_CpGmethyln.png)
+![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter4_percnt_CpGmethyln.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter5a_percnt_CpGmethyln.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter5b_percnt_CpGmethyln.png)
 
 ## Result4b: % Methylation per site
 
@@ -70,6 +70,5 @@ Filter4             |  Filter5a                       | Filter5b
 Filter4             |  Filter5a                       | Filter5b
 :-------------------------:|:-------------------------:|:----------:
 ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter4_Pst_pair1.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter5a_Pst_pair1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter5b_Pst_pair1.png)
-:-------------------------:|:-------------------------:|:----------:
 ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter4_Pst_pair2.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter5a_Pst_pair2.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter5b_Pst_pair2.png)
 
