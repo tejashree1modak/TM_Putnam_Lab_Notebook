@@ -67,6 +67,11 @@ Filter4             |  Filter5a                       | Filter5b
 
 ## Result5c: Pairwise Pst 
 
+|          | Filter4    | Filter5a     | Filter5b  |
+|----------|------------|--------------|-----------|
+| Mean Pst1|0.009522026 | 0.01080664   | 0.01420777|
+| Mean Pst2| 0.01047574 | 0.02351662   |0.0313601 4|
+
 Filter4             |  Filter5a                       | Filter5b
 :-------------------------:|:-------------------------:|:----------:
 ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter4_Pst_pair1.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter5a_Pst_pair1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter5b_Pst_pair1.png)
