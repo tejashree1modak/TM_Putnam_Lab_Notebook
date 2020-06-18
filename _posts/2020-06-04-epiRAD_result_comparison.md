@@ -57,6 +57,7 @@ Filter4             |  Filter5a                       | Filter5b
 ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter4_Pst.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter5a_Pst.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/Filter5b_Pst.png)
 
 ## Result5b: Pst minus outliers 
+Outliers removed include PBF_158, WOF_232, WOF_236 and WOB_41.
 
 |         | Filter4    | Filter5a     | Filter5b  |
 |---------|------------|--------------|-----------|
