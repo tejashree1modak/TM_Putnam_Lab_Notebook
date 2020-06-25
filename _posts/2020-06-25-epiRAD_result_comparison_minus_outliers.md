@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: Comparison of results for filtered epiRAD data without outliers  
@@ -24,10 +23,16 @@ Filter4             |  Filter5a                       | Filter5b
 :-------------------------:|:-------------------------:|:------:
 ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/minus_outliers/Filter4_mds.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/minus_outliers/Filter5a_mds.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/minus_outliers/Filter5b_mds.png)
 
-##Result2: Methylation heatmap clustered by rows and columns without outliers
+## Result2: Methylation heatmap clustered by rows and columns without outliers
+
+Filter4             |  Filter5a                       | Filter5b
+:-------------------------:|:-------------------------:|:------:
 ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/minus_outliers/Filter4_MethylHeatMap_fil.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/minus_outliers/Filter5a_MethylHeatMap.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/minus_outliers/Filter5b_MethylHeatMap.png)
 
-##Result3: %Methylation without outliers
+## Result3: %Methylation without outliers
+
+Filter4             |  Filter5a                       | Filter5b
+:-------------------------:|:-------------------------:|:------:
 ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/minus_outliers/Filter4_percnt_CpGmethyln_bysite.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/minus_outliers/Filter5a_percnt_CpGmethyln_bysite.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/minus_outliers/Filter5b_percnt_CpGmethyln_bysite.png)
 
 ## Result5a: Pst 
@@ -75,9 +80,7 @@ Filter4             |  Filter5a                       | Filter5b
 
 ## Result5c: Pooled Back Reef vs Pooled Fringe Reef Pst
 
-|          | Mean Pst |
-|----------|----------|
-| Filter4  | 0.017    |
-| Filter5a | 0.017    |
-| Filter5b | 0.016    |
+|         | Filter4    | Filter5a | Filter5b  |
+|---------|------------|----------|-----------|
+Mean Pst| 0.017| 0.017|0.016|
 
