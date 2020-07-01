@@ -17,28 +17,29 @@ The ideal pattern in a scree plot is a steep curve followed by a bend and a stra
 ![Percentage of variance explaned by each PC](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/screeplot.png
 )
 
-2. PCA based on scores
+2. PCA based on scores:
+Looking at scores the outliers are: WOF217, PBF165, PBF167, PBF168. Generally PC1 splits samples by back and fringe reef but some EOB/WOB samples wind up in fringe and one PBF160 sample in the back reef group.
 ![pca](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/pca.png)
- Looking at scores the outliers are: WOF217, PBF165, PBF167, PBF168
- Generally PC1 splits samples by back and fringe reef but some EOB/WOB samples wind up in fringe and one PBF160 sample in the back reef group.
 
-3. SNP distribution
+3. SNP distribution:
+Mahattan plot shows the high number of outliers.
 ![Manhattan plot](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/manhattan.png)
 
-4. Distribution of pvalues
+4. Distribution of pvalues:
+Q-Q plot shows relation between observed and expected pvalues
 ![Expected vs Observed pvalues](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/Q-Qplot.png)
 
-5. Histogram of pvalues
+5. Histogram of pvalues:
 Excess small pvalues indicates presence of outliers
 ![Histogram of pvalues](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/hist.png)
 
-6. Histogram of the Mahalanobis distance
+6. Histogram of the Mahalanobis distance:
 This is a test statistic for detecting outlier SNPs that uses a multi-dimensional approach that measures how distant is a point from the mean.
 ![Statistic distribution](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/statdist.png)
 
 ## Fst
 
-1. fst for all individuals together
+1. fst for all individuals together:
 fstat function from hierfstat R package was used to calculate Fst of all the data 
 ```shell
            pop       Ind
@@ -46,6 +47,6 @@ fstat function from hierfstat R package was used to calculate Fst of all the dat
      pop   0.0000000 0.2521562
 ```
 
-2. Pairwise Fst by location
+2. Pairwise Fst by location:
 This was calculated using the Nie method. All four locations were compared to each other. 
 ![Pairwise Fst by location](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/PairwiseFst_Nei.png)
