@@ -43,6 +43,19 @@ This is a test statistic for detecting outlier SNPs that uses a multi-dimensiona
 
 ![Statistic distribution](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/statdist.png)
 
+## MDS
+
+![MDS](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/MDS.png)
+
+
+## DAPC
+find.clusters identifies 5 clusters of sizes 4,4,4,20,26: 
+1. EOB_176,EOB_492,EOB_493,EOB_494
+2. PBF_157,PBF_489, PBF_490, PBF_491
+3. PBF_165, PBF_167, PBF_168,WOF_217
+4. EOB_177,EOB_178,EOB_182,EOB_183,EOB_184,EOB_186,EOB_188,EOB_191,PBF_160,WOB_41,WOB_42,WOB_45,WOB_47,WOB_48,WOB_49,WOB_50,WOB_59,WOB_60,WOB_62,WOB_65
+5. EOB_174,EOB_175,EOB_185,EOB_189,EOB_190,EOB_192,PBF_158,PBF_161,PBF_164,PBF_169,PBF_171,PBF_172,WOB_35,WOF_224,WOF_225, WOF_232, WOF_234, WOF_236,WOF_237,WOF_238,WOF_239,WOF_240,WOF_241,WOF_243,WOF_244,WOF_245.
+
 ## Fst
 
 ### 1. fst for all individuals together:
@@ -58,3 +71,6 @@ fstat function from hierfstat R package was used to calculate Fst of all the dat
 This was calculated using the Nie method. All four locations were compared to each other. 
 
 ![Pairwise Fst by location](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/PairwiseFst_Nei.png)
+
+### 3. Pairwise FST by reef type:
+This also calculated by the Nie method. Back vs Fringe comparison FST: 0.1261697. 
