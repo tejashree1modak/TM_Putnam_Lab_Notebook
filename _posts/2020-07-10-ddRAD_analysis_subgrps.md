@@ -100,10 +100,3 @@ full data | subgrp1| subgrp2
 :-------------------------:|:-------------------------:|:------:
 ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/MDS.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/MDS_subgrp1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/MDS_subgrp2.png)
 
-## Conclusion on subset and subgroups of data
-Subgroup1: PCA and MDS for subgroup1 (that was cluster1+3 as identified by dapc) shows 4 clusters: 
-1. PBF 164, WOF 236
-2. PBF 157, PBF 489, PBF 490, PBF 491 (which was cluster3 per dapc)
-3. PBF 158, EOB 174
-4. EOB_175,EOB_185,EOB_189,EOB_190,EOB_192,PBF_161,PBF_169,PBF_171,PBF_172,WOB_35,WOF_224,WOF_225, WOF_232, WOF_234,WOF_237,WOF_238,WOF_239,WOF_240,WOF_241,WOF_243,WOF_244,WOF_245.
-Subgroup2: All the samples are from the back reef (EOB/WOB) except PBF 160. To keep the comparison between east vs west back fringe sample PBF160 will be removed from this subgroup.
