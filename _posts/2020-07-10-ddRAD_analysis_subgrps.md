@@ -38,9 +38,11 @@ Following is the membership of the clusters identified of sizes 26, 20, 4, 4, 4:
 4. EOB_176,EOB_492,EOB_493,EOB_494
 5. PBF_165, PBF_167, PBF_168,WOF_217
 
-The dapc plot shows: 
-![dapc](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/full_data_dapc.png)
-This shows cluster 1 & 3 close together so this was decided as a single subgroup for testing: Subgroup1 with 26+4=30 individuals and subgroup2 with 20 individuals. Their membership shown below:
+The dapc plot shows:  
+
+![dapc](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/full_data_dapc.png)  
+
+This shows cluster 1 & 3 close together so this was decided as a single subgroup for testing. Subgroup1 with 26+4=30 individuals and subgroup2 with 20 individuals. Their membership shown below:
 1. Subgroup1 (30): EOB_174,EOB_175,EOB_185,EOB_189,EOB_190,EOB_192, PBF_157,PBF_158,PBF_161,PBF_164,PBF_169,PBF_171,PBF_172,PBF_489,PBF_490,PBF_491, WOB_35, WOF_224,WOF_225,WOF_232, WOF_234,WOF_236,WOF_237,WOF_238,WOF_239,WOF_240,WOF_241,WOF_243,WOF_244,WOF_245.  
 2. Subgroup2 (20): EOB_177,EOB_178,EOB_182,EOB_183,EOB_184,EOB_186,EOB_188,EOB_191, PBF_160, WOB_41,WOB_42,WOB_45,WOB_47,WOB_48,WOB_49,WOB_50,WOB_59,WOB_60,WOB_62,WOB_65.
 
