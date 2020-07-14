@@ -54,10 +54,10 @@ This shows cluster 1 & 3 close together so this was decided as a single subgroup
 4. EOB_175,EOB_185,EOB_189,EOB_190,EOB_192,PBF_161,PBF_169,PBF_171,PBF_172,WOB_35,WOF_224,WOF_225, WOF_232, WOF_234,WOF_237,WOF_238,WOF_239,WOF_240,WOF_241,WOF_243,WOF_244,WOF_245.
 - Subgroup2: All the samples are from the back reef (EOB/WOB) except PBF 160. To keep the comparison between east vs west back fringe sample PBF160 will be removed from this subgroup.
 
-**Based on this conclusion henceforth the analysis will proceed with modified membership of the two subgrps as following: 
+**Based on this conclusion henceforth the analysis will proceed with modified membership of the two subgrps as following:** 
 
-- Subgrp1 (22): EOB_175,EOB_185,EOB_189,EOB_190,EOB_192,PBF_161,PBF_169,PBF_171,PBF_172,WOB_35,WOF_224,WOF_225, WOF_232, WOF_234,WOF_237,WOF_238,WOF_239,WOF_240,WOF_241,WOF_243,WOF_244,WOF_245.
-- Subgrp2 (19): EOB_177,EOB_178,EOB_182,EOB_183,EOB_184,EOB_186,EOB_188,EOB_191, WOB_41,WOB_42,WOB_45,WOB_47,WOB_48,WOB_49,WOB_50,WOB_59,WOB_60,WOB_62,WOB_65.**
+- **Subgrp1 (22): EOB_175,EOB_185,EOB_189,EOB_190,EOB_192,PBF_161,PBF_169,PBF_171,PBF_172,WOB_35,WOF_224,WOF_225, WOF_232, WOF_234,WOF_237,WOF_238,WOF_239,WOF_240,WOF_241,WOF_243,WOF_244,WOF_245.**
+- **Subgrp2 (19): EOB_177,EOB_178,EOB_182,EOB_183,EOB_184,EOB_186,EOB_188,EOB_191, WOB_41,WOB_42,WOB_45,WOB_47,WOB_48,WOB_49,WOB_50,WOB_59,WOB_60,WOB_62,WOB_65.**
 
 
 Plots for outlier detection, PCA and MDS for full dataset and 2 subgrps that led to this conclusion are shown below. 
