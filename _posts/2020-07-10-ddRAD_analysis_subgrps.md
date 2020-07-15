@@ -159,4 +159,8 @@ full data | subgrp1| subgrp2
 :-------------------------:|:-------------------------:|:------:
 ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/MDS.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/MDS_subgrp1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/MDS_subgrp2.png)
 
-
+## FST
+Pairwise FST
+subgrp1| subgrp2 
+:-------------------------:|:------:
+![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/pairwise_fst_subgrp11.png) | EOB vs WOB 0.02949656
