@@ -27,7 +27,7 @@ Filter4             |  Filter5a                       | Filter5b
 
 Filter4             |  Filter5a                       | Filter5b
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter4_MethylHeatMap_fil.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter5a_MethylHeatMap.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter5b_MethylHeatMap.png)
+![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter4_MethylHeatMap.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter5a_MethylHeatMap.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter5b_MethylHeatMap.png)
 
 ## Result3: %Methylation without dapc outliers
 ANOVA for % methylation per site is not significant.
