@@ -21,7 +21,7 @@ tags: [ ddRAD, epiRAD, Moorea, methylation, filter, outliers ]
 
 Filter4             |  Filter5a                       | Filter5b
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter4_mds.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter5a_mds.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter5b_mds.png)
+![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter4_mds2.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter5a_mds2.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter5b_mds2.png)
 
 ## Result2: Methylation heatmap clustered by rows and columns without dapc outliers
 
