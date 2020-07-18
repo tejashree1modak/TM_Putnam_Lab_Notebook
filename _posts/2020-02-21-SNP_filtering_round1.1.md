@@ -68,7 +68,7 @@ WOF_244 129852  0       16320   0.125682
 
 Generating a histogram:
 
-![Histogram](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/Histogram%20of%20%25%20missing%20data%20per%20individual.png)
+![Histogram]({{site.baseurl}}/images/Histogram%20of%20%25%20missing%20data%20per%20individual.png)
 
 Most of the individuals have less than 0.2 missing data. 
 Create a list of individuals with more than 20% missing data.
@@ -262,7 +262,7 @@ Now let’s calculate the average depth by dividing the above file by the number
 
 `mawk '!/D/' DP3g95p5maf05.fil5.site.depth | mawk -v x=17 '{print $1/x}' > meandepthpersite`
 
-![Histogram](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/Mean_depth_per_site.png)
+![Histogram]({{site.baseurl}}/images/Mean_depth_per_site.png)
 
 Loci that have high mean depth are indicative of either paralogs or multicopy loci. Either way we want to remove them. Here, I’d remove all loci above a mean depth of 102.5. Now we can combine both filters to produce another VCF file.
 

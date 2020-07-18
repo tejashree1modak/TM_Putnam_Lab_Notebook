@@ -42,7 +42,7 @@ Following is the membership of the clusters identified of sizes 26, 20, 4, 4, 4:
 
 The dapc plot shows:  
 
-![dapc](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/full_data_dapc.png)  
+![dapc]({{site.baseurl}}/images/ddRAD_analysis_out/full_data_dapc.png)  
 
 This shows cluster 1 & 3 close together so this was decided as a single subgroup for testing. Subgroup1 with 26+4=30 individuals and subgroup2 with 20 individuals. Their membership shown below:
 1. Subgroup1 (30): EOB_174,EOB_175,EOB_185,EOB_189,EOB_190,EOB_192, PBF_157,PBF_158,PBF_161,PBF_164,PBF_169,PBF_171,PBF_172,PBF_489,PBF_490,PBF_491, WOB_35, WOF_224,WOF_225,WOF_232, WOF_234,WOF_236,WOF_237,WOF_238,WOF_239,WOF_240,WOF_241,WOF_243,WOF_244,WOF_245.  
@@ -70,43 +70,43 @@ Plots for outlier detection, PCA and MDS for full dataset and 2 subgrps that led
 
 full data | subgrp1| subgrp2 
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/screeplot.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/screeplot_subgrp1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/screeplot_subgrp2.png)
+![]({{site.baseurl}}/images/ddRAD_analysis_out/screeplot.png)  |  ![]({{site.baseurl}}/images/ddRAD_analysis_out/screeplot_subgrp1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/screeplot_subgrp2.png)
 
 ## 2. PCA based on scores: 
 
 full data | subgrp1| subgrp2 
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/pca.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/pca_subgrp1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/pca_subgrp2.png)
+![]({{site.baseurl}}/images/ddRAD_analysis_out/pca.png)  |  ![]({{site.baseurl}}/images/ddRAD_analysis_out/pca_subgrp1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/pca_subgrp2.png)
 
 ## 3. SNP distribution:
 
 full data | subgrp1| subgrp2 
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/manhattan.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/manhattan_subgrp1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/manhattan_subgrp2.png)
+![]({{site.baseurl}}/images/ddRAD_analysis_out/manhattan.png)  |  ![]({{site.baseurl}}/images/ddRAD_analysis_out/manhattan_subgrp1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/manhattan_subgrp2.png)
 
 ## 4. Distribution of pvalues:
 
 full data | subgrp1| subgrp2 
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/Q-Qplot.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/Q-Qplot_subgrp1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/Q-Qplot_subgrp2.png)
+![]({{site.baseurl}}/images/ddRAD_analysis_out/Q-Qplot.png)  |  ![]({{site.baseurl}}/images/ddRAD_analysis_out/Q-Qplot_subgrp1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/Q-Qplot_subgrp2.png)
 
 ## 5. Histogram of pvalues:
 
 full data | subgrp1| subgrp2 
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/hist.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/hist_subgrp1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/hist_subgrp2.png)
+![]({{site.baseurl}}/images/ddRAD_analysis_out/hist.png)  |  ![]({{site.baseurl}}/images/ddRAD_analysis_out/hist_subgrp1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/hist_subgrp2.png)
 
 ## 6. Histogram of the Mahalanobis distance:
 
 full data | subgrp1| subgrp2 
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/statdist.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/statdist_subgrp1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/statdist_subgrp2.png)
+![]({{site.baseurl}}/images/ddRAD_analysis_out/statdist.png)  |  ![]({{site.baseurl}}/images/ddRAD_analysis_out/statdist_subgrp1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/statdist_subgrp2.png)
 
 ## MDS
 
 full data | subgrp1| subgrp2 
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/MDS.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/MDS_subgrp1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/MDS_subgrp2.png)
+![]({{site.baseurl}}/images/ddRAD_analysis_out/MDS.png)  |  ![]({{site.baseurl}}/images/ddRAD_analysis_out/MDS_subgrp1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/MDS_subgrp2.png)
 
 ## B. Comparison of results for NEW subgroups obtained by removing outliers from full data set as explained in the above section A.
 
@@ -119,7 +119,7 @@ full data | subgrp1| subgrp2
 
 full data | subgrp1| subgrp2 
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/screeplot.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/screeplot_subgrp1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/screeplot_subgrp2.png)
+![]({{site.baseurl}}/images/ddRAD_analysis_out/screeplot.png)  |  ![]({{site.baseurl}}/images/ddRAD_analysis_out/new_subgrps/screeplot_subgrp1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/new_subgrps/screeplot_subgrp2.png)
 
 ## 2. PCA based on scores:
 PCA for subgroup1 shows samples from "fringe reef" form a fairly separate cluster than the "back reef" EOB or WOB samples. However we only have one WOB sample.  
@@ -127,40 +127,40 @@ In subgroup2 EOB and WOB show separation with some overlap.
 
 full data | subgrp1| subgrp2 
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/pca.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/pca_subgrp1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/pca_subgrp2.png)
+![]({{site.baseurl}}/images/ddRAD_analysis_out/pca.png)  |  ![]({{site.baseurl}}/images/ddRAD_analysis_out/new_subgrps/pca_subgrp1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/new_subgrps/pca_subgrp2.png)
 
 ## 3. SNP distribution:
 
 full data | subgrp1| subgrp2 
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/manhattan.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/manhattan_subgrp1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/manhattan_subgrp2.png)
+![]({{site.baseurl}}/images/ddRAD_analysis_out/manhattan.png)  |  ![]({{site.baseurl}}/images/ddRAD_analysis_out/new_subgrps/manhattan_subgrp1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/new_subgrps/manhattan_subgrp2.png)
 
 ## 4. Distribution of pvalues:
 
 full data | subgrp1| subgrp2 
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/Q-Qplot.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/Q-Qplot_subgrp1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/Q-Qplot_subgrp2.png)
+![]({{site.baseurl}}/images/ddRAD_analysis_out/Q-Qplot.png)  |  ![]({{site.baseurl}}/images/ddRAD_analysis_out/new_subgrps/Q-Qplot_subgrp1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/new_subgrps/Q-Qplot_subgrp2.png)
 
 ## 5. Histogram of pvalues:
 
 full data | subgrp1| subgrp2 
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/hist.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/hist_subgrp1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/hist_subgrp2.png)
+![]({{site.baseurl}}/images/ddRAD_analysis_out/hist.png)  |  ![]({{site.baseurl}}/images/ddRAD_analysis_out/new_subgrps/hist_subgrp1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/new_subgrps/hist_subgrp2.png)
 
 ## 6. Histogram of the Mahalanobis distance:
 
 full data | subgrp1| subgrp2 
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/statdist.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/statdist_subgrp1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/statdist_subgrp2.png)
+![]({{site.baseurl}}/images/ddRAD_analysis_out/statdist.png)  |  ![]({{site.baseurl}}/images/ddRAD_analysis_out/new_subgrps/statdist_subgrp1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/new_subgrps/statdist_subgrp2.png)
 
 ## MDS
 
 full data | subgrp1| subgrp2 
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/MDS.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/MDS_subgrp1.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/MDS_subgrp2.png)
+![]({{site.baseurl}}/images/ddRAD_analysis_out/MDS.png)  |  ![]({{site.baseurl}}/images/ddRAD_analysis_out/new_subgrps/MDS_subgrp1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/new_subgrps/MDS_subgrp2.png)
 
 ## FST
 Pairwise FST
 subgrp1| subgrp2 
 :-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/ddRAD_analysis_out/new_subgrps/pairwise_fst_subgrp1.png) | EOB vs WOB 0.02949656
+![]({{site.baseurl}}/images/ddRAD_analysis_out/new_subgrps/pairwise_fst_subgrp1.png) | EOB vs WOB 0.02949656

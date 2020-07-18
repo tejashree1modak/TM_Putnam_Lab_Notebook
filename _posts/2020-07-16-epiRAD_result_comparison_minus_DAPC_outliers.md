@@ -21,20 +21,20 @@ tags: [ ddRAD, epiRAD, Moorea, methylation, filter, outliers ]
 
 Filter4             |  Filter5a                       | Filter5b
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter4_mds2.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter5a_mds2.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter5b_mds2.png)
+![]({{site.baseurl}}/images/epiRAD_analysis_out/post_fil2b/Filter4_mds2.png)  |  ![]({{site.baseurl}}/images/epiRAD_analysis_out/post_fil2b/Filter5a_mds2.png) | ![]({{site.baseurl}}/images/epiRAD_analysis_out/post_fil2b/Filter5b_mds2.png)
 
 ## Result2: Methylation heatmap clustered by rows and columns without dapc outliers
 
 Filter4             |  Filter5a                       | Filter5b
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter4_MethylHeatMap.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter5a_MethylHeatMap.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter5b_MethylHeatMap.png)
+![]({{site.baseurl}}/images/epiRAD_analysis_out/post_fil2b/Filter4_MethylHeatMap.png)  |  ![]({{site.baseurl}}/images/epiRAD_analysis_out/post_fil2b/Filter5a_MethylHeatMap.png) | ![]({{site.baseurl}}/images/epiRAD_analysis_out/post_fil2b/Filter5b_MethylHeatMap.png)
 
 ## Result3: %Methylation without dapc outliers
 ANOVA for % methylation per site is not significant.
 
 Filter4             |  Filter5a                       | Filter5b
 :-------------------------:|:-------------------------:|:------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter4_percnt_CpGmethyln_bysite.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter5a_percnt_CpGmethyln_bysite.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter5b_percnt_CpGmethyln_bysite.png)
+![]({{site.baseurl}}/images/epiRAD_analysis_out/post_fil2b/Filter4_percnt_CpGmethyln_bysite.png)  |  ![]({{site.baseurl}}/images/epiRAD_analysis_out/post_fil2b/Filter5a_percnt_CpGmethyln_bysite.png) | ![]({{site.baseurl}}/images/epiRAD_analysis_out/post_fil2b/Filter5b_percnt_CpGmethyln_bysite.png)
 
 ## Result5a: Pst 
 
@@ -44,7 +44,7 @@ Mean Pst| 0.127| 0.132|0.132|
 
 Filter4             |  Filter5a                       | Filter5b
 :-------------------------:|:-------------------------:|:----------:
-![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter4_Pst.png)  |  ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter5a_Pst.png) | ![](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/epiRAD_analysis_out/post_fil2b/Filter5b_Pst.png)
+![]({{site.baseurl}}/images/epiRAD_analysis_out/post_fil2b/Filter4_Pst.png)  |  ![]({{site.baseurl}}/images/epiRAD_analysis_out/post_fil2b/Filter5a_Pst.png) | ![]({{site.baseurl}}/images/epiRAD_analysis_out/post_fil2b/Filter5b_Pst.png)
 
 ## Result5b: Pairwise Pst 
 

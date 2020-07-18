@@ -13,9 +13,9 @@ We decided to choose 5 individuals from each of the four locations and start the
 The files for the chosen subset was copied into a new dir called round1/RefOpt housed in the /home/tejashree/Moorea/ddocent/ dir. 
 dDocent was run allowing trimming, type of assembly PE, clustering similarity 0.85%, Minimum within individaul coverage level to include a read for assembly (K1) = 3, Minimum number of individuals a read must be present in to include for assembly (K2) also as 3 since this was the value right before the asympote for both plots. The rest of the parameters were chosen as defaults. 
 
-![Histogram](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/Assembly1_Uniq_seq_coverage.png)
+![Histogram]({{site.baseurl}}/images/Assembly1_Uniq_seq_coverage.png)
 
-![Histogram](https://github.com/tejashree1modak/TM_Putnam_Lab_Notebook/blob/master/images/Assembly1_unique_seq_indiv.png)
+![Histogram]({{site.baseurl}}/images/Assembly1_unique_seq_indiv.png)
 
 The log file /home/tejashree/Moorea/ddocent/round1/ReOpt/dDocent.runs has all the chosen parameters for this run. 
 
