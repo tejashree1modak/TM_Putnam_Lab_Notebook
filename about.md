@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I consider myself an evolutionary biologist studying a variety of research questions including evolution of immunity, evolution of genomes and recently population genetics and epigenetics. My ineterest lies in leveraging data to answer research questions pertaining to adaptation and evolution in non model organisms.  
+I consider myself an evolutionary biologist studying a variety of research questions including evolution of immunity, evolution of genomes and recently population genetics and epigenetics. My interest lies in leveraging data to answer research questions pertaining to adaptation and evolution in non model organisms.  
 
 I strive to do reproducible science through open documentation and transparency. 
 
