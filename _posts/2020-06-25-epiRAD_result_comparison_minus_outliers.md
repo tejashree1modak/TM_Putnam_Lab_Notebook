@@ -51,30 +51,134 @@ Filter4             |  Filter5a                       | Filter5b
 <tr><th>Table 1 Filter4</th><th>Table 2 Filter5a</th><th>Table3 Filter5b</th></tr>
 <tr><td>
 
-|     | EOB | PBF   | WOB   | WOF   |
-|-----|-----|-------|-------|-------|
-| EOB | x   | 0.046 | 0.077 | 0.03  |
-| PBF |     | x     | 0.064 | 0.033 |
-| WOB |     |       | x     | 0.079 |
-| WOF |     |       |       | x     |
+<table>
+<thead>
+<tr>
+<th></th>
+<th>EOB</th>
+<th>PBF</th>
+<th>WOB</th>
+<th>WOF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EOB</td>
+<td>x</td>
+<td>0.046</td>
+<td>0.077</td>
+<td>0.03</td>
+</tr>
+<tr>
+<td>PBF</td>
+<td></td>
+<td>x</td>
+<td>0.064</td>
+<td>0.033</td>
+</tr>
+<tr>
+<td>WOB</td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>0.079</td>
+</tr>
+<tr>
+<td>WOF</td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
 
 </td><td>
 
-|     | EOB | PBF   | WOB   | WOF   |
-|-----|-----|-------|-------|-------|
-| EOB | x   | 0.046 | 0.083 | 0.028 |
-| PBF |     | x     | 0.067 | 0.035 |
-| WOB |     |       | x     | 0.085 |
-| WOF |     |       |       | x     |
-
+<table>
+<thead>
+<tr>
+<th></th>
+<th>EOB</th>
+<th>PBF</th>
+<th>WOB</th>
+<th>WOF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EOB</td>
+<td>x</td>
+<td>0.046</td>
+<td>0.083</td>
+<td>0.028</td>
+</tr>
+<tr>
+<td>PBF</td>
+<td></td>
+<td>x</td>
+<td>0.067</td>
+<td>0.035</td>
+</tr>
+<tr>
+<td>WOB</td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>0.085</td>
+</tr>
+<tr>
+<td>WOF</td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
 </td><td>
 
-|     | EOB | PBF   | WOB   | WOF   |
-|-----|-----|-------|-------|-------|
-| EOB | x   | 0.047 | 0.085 | 0.029 |
-| PBF |     | x     | 0.065 | 0.038 |
-| WOB |     |       | x     | 0.085 |
-| WOF |     |       |       | x     |
+<table>
+<thead>
+<tr>
+<th></th>
+<th>EOB</th>
+<th>PBF</th>
+<th>WOB</th>
+<th>WOF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EOB</td>
+<td>x</td>
+<td>0.047</td>
+<td>0.085</td>
+<td>0.029</td>
+</tr>
+<tr>
+<td>PBF</td>
+<td></td>
+<td>x</td>
+<td>0.065</td>
+<td>0.038</td>
+</tr>
+<tr>
+<td>WOB</td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>0.085</td>
+</tr>
+<tr>
+<td>WOF</td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
 
 </td></tr> </table>
 
