@@ -6,10 +6,13 @@ tags: [ ddRAD, epiRAD, Moorea, methylation, filter, cluster]
 
 ## Cluster composition post all filters: 
 1. CLUSTER1:
+
 - EOB_175_epi, EOB_185_epi, EOB_189_epi, EOB_190_epi, EOB_192_epi
 - PBF_169_epi, PBF_171_epi, PBF_172_epi
 - WOF_224_epi, WOF_225_epi, WOF_234_epi, WOF_237_epi, WOF_238_epi, WOF_239_epi, WOF_240_epi, WOF_241_epi, WOF_243_epi, WOF_244_epi, WOF_245_epi
+
 2. CLUSTER2: 
+
 - EOB_177_epi, EOB_183_epi, EOB_184_epi, EOB_186_epi, EOB_188_epi, EOB_191_epi
 - WOB_42_epi, WOB_47_epi, WOB_48_epi, WOB_49_epi, WOB_50_epi, WOB_59_epi, WOB_60_epi, WOB_62_epi
 
@@ -52,6 +55,7 @@ Mean Pst| 0.1701| 0.05|
 ## Result: Pairwise Pst 
 
 Cluster1 only
+
 - EOB vs PBF: 0.118 
 - PBF vs WOF: 0.211
 - EOB vs WOF: 0.127
