@@ -429,4 +429,62 @@ mawk '!/#/' SNP.DP3g95p5maf001.HWE.filtered.vcf | wc -l
 ### Total loci in Cluster2 post SNP filtering: 24927
 ### Total individuals in Cluster2 post SNP filtering: 19
 
+## 2. ddRAD data analysis for clusters
+### Outlier detection:
 
+### 1. Choosing the number of principal components:
+
+ clust1| clust2
+:-------------------------:|:------:
+  ![]({{site.baseurl}}/images/ddRAD_analysis_out/clusters/screeplot_clust1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/clusters/screeplot_clust2.png)
+
+### 2. PCA based on scores:
+
+ clust1| clust2
+:-------------------------:|:------:
+  ![]({{site.baseurl}}/images/ddRAD_analysis_out/clusters/pca_clust1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/clusters/pca_clust2.png)
+
+### 3. SNP distribution:
+
+   clust1| clust2
+:-------------------------:|:------:
+  ![]({{site.baseurl}}/images/ddRAD_analysis_out/clusters/manhattan_clust1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/clusters/manhattan_clust2.png)
+
+### 4. Distribution of pvalues:
+
+  | clust1| clust2
+:-------------------------:|:------:
+  ![]({{site.baseurl}}/images/ddRAD_analysis_out/clusters/Q-Qplot_clust1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/clusters/Q-Qplot_clust2.png)
+
+### 5. Histogram of pvalues:
+
+  | clust1| clust2
+:-------------------------:|:------:
+  ![]({{site.baseurl}}/images/ddRAD_analysis_out/clusters/hist_clust1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/clusters/hist_clust2.png)
+
+### 6. Histogram of the Mahalanobis distance:
+
+  | clust1| clust2
+:-------------------------:|:------:
+  ![]({{site.baseurl}}/images/ddRAD_analysis_out/clusters/statdist_clust1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/clusters/statdist_clust2.png)
+
+### MDS
+
+  | clust1| clust2
+:-------------------------:|:------:
+  ![]({{site.baseurl}}/images/ddRAD_analysis_out/clusters/MDS_clust1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/clusters/MDS_clust2.png)
+
+### FST using fstat
+Cluster1: 
+```
+              pop       Ind
+              Total 0.002309293 0.1047697
+              pop   0.000000000 0.1026976
+```
+Cluster2: 
+
+```
+                pop        Ind
+                Total -0.0002584412 0.07767573
+                pop    0.0000000000 0.07791403
+```
