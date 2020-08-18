@@ -275,20 +275,53 @@ Cov      Non0Cov  Contigs  MeanContigsMapped  K1  K2  SUM Mapped  SUM Properly  
 ## dDocent run with full set of samples per cluster
 dDocent was run for assembly with optimized parameters per cluster. The reference.fasta generated from this was copied to run dDocent with all samples per cluster for mapping and SNP calling. 
 
-## Step1: 50% of individuals, a minimum quality score of 30, and a minor allele count of 3
+## SNP filtering 
+
+### Step1: 50% of individuals, a minimum quality score of 30, and a minor allele count of 3
 
 ```
 vcftools --vcf TotalRawSNPs.vcf --max-missing 0.5 --mac 3 --minQ 30 --recode --recode-INFO-all --out raw.g5mac3
 
 ```
+cluster1
 
-## Step2: Minimum mean depth: minDP 5
+```shell
+After filtering, kept 22 out of 22 Individuals
+Outputting VCF file...
+After filtering, kept 126566 out of a possible 396371 Sites
+Run Time = 13.00 seconds
+```
+
+Cluster2
+
+```shell
+After filtering, kept 18 out of 18 Individuals
+Outputting VCF file...
+After filtering, kept 96428 out of a possible 273697 Sites
+Run Time = 8.00 seconds
+```
+### Step2: Minimum mean depth: minDP 5
 
 ```shell
 vcftools --vcf raw.g5mac3.recode.vcf --minDP 5 --recode --recode-INFO-all --out raw.g5mac3dp5
 
 ```
-## Step3: Filter missing indiv post minDP =5
+
+cluster1 
+
+```shell
+After filtering, kept 22 out of 22 Individuals
+Outputting VCF file...
+After filtering, kept 126566 out of a possible 126566 Sites
+```
+cluster2
+
+```shell
+After filtering, kept 18 out of 18 Individuals
+Outputting VCF file...
+After filtering, kept 96428 out of a possible 96428 Sites
+```
+### Step3: Filter missing indiv post minDP =5
 
 ```shell
 ./filter_missing_ind.sh raw.g5mac3dp5.recode.vcf raw.g5mac3dplm
@@ -299,48 +332,47 @@ vcftools --vcf raw.g5mac3.recode.vcf --minDP 5 --recode --recode-INFO-all --out 
 ```
                                           Histogram of % missing data per individual
 
-        9 +---------------------------------------------------------------------------------------------------------+
-          |            +             +            +            +            *             +            *            |
-          |                                                   'totalmissing'*using (bin($1,binwidth)):(*.0) ******* |
-        8 |-+                                                               *                          *          +-|
-          |                                                                 *                          *            |
-        7 |-+                                                               *                          *          +-|
-          |                                                                 *                          *            |
-          |                                                                 *                          *            |
-        6 |-+                                                               *                          *          +-|
-          |                                                                 *                          *            |
-        5 |-+          ****************************                         *                          *          +-|
-          |            *                          *                         *                          *            |
-          |            *                          *                         *                          *            |
-        4 |-+          *                          *                         *                          *          +-|
-          |            *                          *                         *                          *            |
-        3 |*************                          ***************************                          *          +-|
-          |            *                          *                         *                          *            |
-          |            *                          *                         *                          *            |
-        2 |-+          *                          *                         *                          *************|
-          |            *                          *                         *                          *            |
-        1 |-+          *                          *                         *                          *          +-|
-          |            *                          *                         *                          *            |
-          |            *             +            *            +            *             +            *            |
+       12 +---------------------------------------------------------------------------------------------------------+
+          |              +              +              +               +              +              +              |
+          |                                                   'totalmis****************($1,binwidth)):(1.0) ******* |
+          |                                                            *              *                             |
+       10 |-+                                                          *              *                           +-|
+          |                                                            *              *                             |
+          |                                                            *              *                             |
+          |                                                            *              *                             |
+        8 |-+                                                          *              *                           +-|
+          |                                                            *              *                             |
+          |                                                            *              *                             |
+        6 |-+                                                          *              *                           +-|
+          |                                                            *              *                             |
+          |                                                            *              *                             |
+          |                                                            *              *                             |
+        4 |-+                                                          *              *                           +-|
+          |                                                            *              *                             |
+          |              *******************************               *              *                             |
+          |              *              *              *               *              *                             |
+        2 |-+            *              *              *               *              ****************            +-|
+          |              *              *              *               *              *              *              |
+          |***************              *              *****************              *              ********       |
+          |              *              *              *               *              *              *      *       |
         0 +---------------------------------------------------------------------------------------------------------+
-        0.125         0.13         0.135         0.14        0.145         0.15         0.155         0.16        0.165
+         0.11           0.12           0.13           0.14            0.15           0.16           0.17           0.18
                                                        % of missing data
 
-The 85% cutoff would be 0.157016
+The 85% cutoff would be 0.163843
 Would you like to set a different cutoff, yes or no
 yes
 Please enter new cutoff
-0.165
-All individuals with more than 16.5% missing data will be removed.
+0.175
+All individuals with more than 17.5% missing data will be removed.
 
-After filtering, kept 21 out of 22 Individuals
-Outputting VCF file...
-After filtering, kept 123892 out of a possible 123892 Sites
-
-mawk '$5 > 0.165' raw.g5mac3dplm.imiss | cut -f1 | less
+mawk '$5 > 0.175' raw.g5mac3dplm.imiss | cut -f1 | less
 
 INDV
-PBF_169_ddr
+
+After filtering, kept 22 out of 22 Individuals
+Outputting VCF file...
+After filtering, kept 126566 out of a possible 126566 Sites
 
 ```
 
@@ -349,87 +381,89 @@ PBF_169_ddr
 ```
                                           Histogram of % missing data per individual
 
-        5 +---------------------------------------------------------------------------------------------------------+
-          |     *     *           +          +           +           +           +          +           +           |
-          |     *     *                                       'totalmissing' using (bin($1,binwidth)):(1.0) ******* |
-          |     *     *                                                                                             |
-          |     *     *                                                                                             |
-        4 |-+   *     *     ***************                                                                       +-|
-          |     *     *     *     *       *                                                                         |
-          |     *     *     *     *       *                                                                         |
-          |     *     *     *     *       *                                                                         |
-        3 |-+   *     *******     *       *                                                                       +-|
-          |     *     *     *     *       *                                                                         |
-          |     *     *     *     *       *                                                                         |
-          |     *     *     *     *       *                                                                         |
-          |     *     *     *     *       *                                                                         |
-        2 |-+   *     *     *     *       *                                                                       +-|
-          |     *     *     *     *       *                                                                         |
-          |     *     *     *     *       *                                                                         |
-          |     *     *     *     *       *                                                                         |
-        1 |-+   *     *     *     *       ******************************************************************      +-|
-          |     *     *     *     *       *        *                             *                         *        |
-          |     *     *     *     *       *        *                             *                         *        |
-          |     *     *     *     *       *        *                             *                         *        |
-          |     *     *     *     *       *  +     *     +           +           *          +           +  *        |
+        7 +---------------------------------------------------------------------------------------------------------+
+          |              *              *              +               +              +              +              |
+          |              *              *                     'totalmissing' using (bin($1,binwidth)):(1.0) ******* |
+        6 |-+            *              ****************                                                          +-|
+          |              *              *              *                                                            |
+          |              *              *              *                                                            |
+          |              *              *              *                                                            |
+        5 |-+            *              *              *                                                          +-|
+          |              *              *              *                                                            |
+          |              *              *              *                                                            |
+        4 |-+            *              *              *                                                          +-|
+          |              *              *              *                                                            |
+          |              *              *              *                                                            |
+        3 |-+            *              *              *                                                          +-|
+          |              *              *              *                                                            |
+          |              *              *              *                                                            |
+        2 |-+            *              *              *****************                                          +-|
+          |              *              *              *               *                                            |
+          |              *              *              *               *                                            |
+          |              *              *              *               *                                            |
+        1 |***************              *              *               **************************************     +-|
+          |              *              *              *               *                     *              *       |
+          |              *              *              *               *              +      *       +      *       |
         0 +---------------------------------------------------------------------------------------------------------+
-         0.1         0.12        0.14       0.16        0.18        0.2         0.22       0.24        0.26        0.28
+         0.09           0.1            0.11           0.12            0.13           0.14           0.15           0.16
                                                        % of missing data
 
-The 85% cutoff would be 0.160448
+The 85% cutoff would be 0.126965
 Would you like to set a different cutoff, yes or no
 yes
 Please enter new cutoff
-0.26
-All individuals with more than 26.0% missing data will be removed.
+0.16
+All individuals with more than 16.0% missing data will be removed.
 
-After filtering, kept 18 out of 19 Individuals
+mawk '$5 > 0.16' raw.g5mac3dplm.imiss | cut -f1 | less
+
+INDV
+
+After filtering, kept 18 out of 18 Individuals
 Outputting VCF file...
-After filtering, kept 106595 out of a possible 106595 Sites
-
+After filtering, kept 96428 out of a possible 96428 Sites
 ```
 
-## Step4: Restrict the data to variants called in a high percentage of individuals and filter by mean depth of genotypes
+### Step4: Restrict the data to variants called in a high percentage of individuals and filter by mean depth of genotypes.
+
 This applied a genotype call rate (95%) across all individuals. Setting maf = 0.001
 
 ```shell
 vcftools --vcf raw.g5mac3dplm.recode.vcf --max-missing 0.95 --maf 0.001 --recode --recode-INFO-all --out DP3g95maf001 --min-meanDP 20
 
 ```
-### Cluster1
+Cluster1
 
 ```
-After filtering, kept 21 out of 21 Individuals
+After filtering, kept 22 out of 22 Individuals
 Outputting VCF file...
-After filtering, kept 71466 out of a possible 123892 Sites
-
+After filtering, kept 71755 out of a possible 126566 Sites
 ```
 
-### Cluster2
+Cluster2
 
 ```
-After filtering, kept 18 out of 18 Individuals
+fter filtering, kept 18 out of 18 Individuals
 Outputting VCF file...
-After filtering, kept 53836 out of a possible 106595 Sites
-
+After filtering, kept 52242 out of a possible 96428 Sites
 ```
 
-## Step5: Filtering by population specific call rate when multiple localities are present
+### Step5: Filtering by population specific call rate when multiple localities are present
 
 ### Cluster1
 
 ```shell
-mawk '$2 == "EOB"' popmap > 1.keep && mawk '$2 == "PBF"' popmap > 2.keep && mawk '$2 == "WOF"' popmap > 3.keep
+mawk '$2 == "EOB"' popmap > 1.keep && mawk '$2 == "PBF"' popmap > 2.keep && mawk '$2 == "WOF"' popmap > 3.keep && mawk '$2 == "WOB"' popmap > 4.keep
 vcftools --vcf DP3g95maf001.recode.vcf --keep 1.keep --missing-site --out 1
 vcftools --vcf DP3g95maf001.recode.vcf --keep 2.keep --missing-site --out 2
 vcftools --vcf DP3g95maf001.recode.vcf --keep 3.keep --missing-site --out 3
-cat 1.lmiss 2.lmiss 3.lmiss | mawk '!/CHR/' | mawk '$6 > 0.1' | cut -f1,2 >> badloci
+vcftools --vcf DP3g95maf001.recode.vcf --keep 4.keep --missing-site --out 4
+cat 1.lmiss 2.lmiss 3.lmiss 4.lmiss | mawk '!/CHR/' | mawk '$6 > 0.1' | cut -f1,2 >> badloci
 vcftools --vcf DP3g95maf001.recode.vcf --exclude-positions badloci --recode --recode-INFO-all --out DP3g95p5maf001
 
-After filtering, kept 21 out of 21 Individuals
+After filtering, kept 22 out of 22 Individuals
 Outputting VCF file...
-After filtering, kept 67166 out of a possible 71466 Sites
-
+After filtering, kept 66375 out of a possible 71755 Sites
 ```
 
 ### Cluster2
@@ -439,11 +473,11 @@ mawk '$2 == "EOB"' popmap > 1.keep && mawk '$2 == "WOB"' popmap > 2.keep
 vcftools --vcf DP3g95maf001.recode.vcf --keep 1.keep --missing-site --out 1
 vcftools --vcf DP3g95maf001.recode.vcf --keep 2.keep --missing-site --out 2
 cat 1.lmiss 2.lmiss | mawk '!/CHR/' | mawk '$6 > 0.1' | cut -f1,2 >> badloci
+vcftools --vcf DP3g95maf001.recode.vcf --exclude-positions badloci --recode --recode-INFO-all --out DP3g95p5maf001
 
 After filtering, kept 18 out of 18 Individuals
 Outputting VCF file...
-After filtering, kept 53836 out of a possible 53836 Sites
-
+After filtering, kept 52242 out of a possible 52242 Sites
 ```
 ## Step6: Used dDocent_filters script
 
@@ -453,65 +487,65 @@ After filtering, kept 53836 out of a possible 53836 Sites
 ./dDocent_filters DP3g95p5maf001.recode.vcf dDocent_filters_out
 
 Number of sites filtered based on allele balance at heterozygous loci, locus quality, and mapping quality / Depth
- 9094 of 67166
+ 9342 of 66375
 
 Are reads expected to overlap?  In other words, is fragment size less than 2X the read length?  Enter yes or no.
 no
 Number of additional sites filtered based on overlapping forward and reverse reads
- 13577 of 58072
+ 13168 of 57033
 
 Is this from a mixture of SE and PE libraries? Enter yes or no.
 no
 Number of additional sites filtered based on properly paired status
- 1701 of 44495
+ 1723 of 43865
 
 Number of sites filtered based on high depth and lower than 2*DEPTH quality score
- 3491 of 42794
+ 3275 of 42142
 
                                                Histogram of mean depth per site
 
-      700 +---------------------------------------------------------------------------------------------------------+
-          | +    +     +    +    +     +    +    +     +    +     +    +    +     +    +    +     +    +    +     + |
-          |                            **                 'meandepthpersite' using (bin($1,binwidth)):(1.0) ******* |
-      600 |-+                          **                                                                         +-|
-          |                            ****                                                                         |
-          |                            ****                                                                         |
-          |                            ******                                                                       |
-      500 |-+                          ********                                                                   +-|
-          |                          ***********                                                                    |
-          |                        *************                                                                    |
-      400 |-+                      **************                                                                 +-|
-          |                      * ****************                                                                 |
-          |                      ******************                                                                 |
-      300 |-+                  ********************* *                                                            +-|
-          |                    *********************** *                                                            |
-          |                    ************************* **  *                                                      |
-      200 |-+               *******************************  **                                                   +-|
-          |               * ************************************                                                    |
-          |              *********************************************                                              |
-          |            *************************************************                                            |
-      100 |-+        ****************************************************     *                                   +-|
-          |         ***************************************************************** * ***** **                    |
+      600 +---------------------------------------------------------------------------------------------------------+
+          | +    +     +    +    +     +   *+     +    +    +     +    +    +     +    +     +    +    +     +    + |
+          |                            *   *              'meandepthpersite' using (bin($1,binwidth)):(1.0) ******* |
+          |                            **  *                                                                        |
+      500 |-+                          ******                                                                     +-|
+          |                           *********                                                                     |
+          |                         * *********                                                                     |
+          |                         *********** *                                                                   |
+      400 |-+                     ***************                                                                 +-|
+          |                       *****************                                                                 |
+          |                     *******************  *                                                              |
+      300 |-+                  ********************  *                                                            +-|
+          |                    ***********************                                                              |
+          |                   ************************ **                                                           |
+          |                   ******************************                                                        |
+      200 |-+               ***********************************                                                   +-|
+          |                ************************************ *                                                   |
+          |               *******************************************                                               |
+          |              ********************************************                                               |
+      100 |-+           ************************************************                                          +-|
+          |          ******************************************************** *  ** **                              |
+          |         ******************************************************************** ******* ***** *      *     |
           | +   *+**************************************************************************************************|
         0 +---------------------------------------------------------------------------------------------------------+
-            15   30    45   60   75    90  105  120   135  150   165  180  195   210  225  240   255  270  285   300
+            15   30    45   60   75    90  105   120  135  150   165  180  195   210  225   240  255  270   285  300
                                                           Mean Depth
 
-If distrubtion looks normal, a 1.645 sigma cutoff (~90% of the data) would be 6383.247
-The 95% cutoff would be 279
-Would you like to use a different maximum mean depth cutoff than 279, yes or no
+If distrubtion looks normal, a 1.645 sigma cutoff (~90% of the data) would be 6789.15295
+The 95% cutoff would be 278
+Would you like to use a different maximum mean depth cutoff than 278, yes or no
 no
 Number of sites filtered based on maximum mean depth
- 2313 of 42794
+ 2239 of 42142
 
 Number of sites filtered based on within locus depth mismatch
- 60 of 40481
+ 52 of 39903
 
 Total number of sites filtered
- 26745 of 67166
+ 26524 of 66375
 
 Remaining sites
- 40421
+ 39851
 
 Filtered VCF file is called Output_prefix.FIL.recode.vcf
 
@@ -524,65 +558,63 @@ Filter stats stored in dDocent_filters_out.filterstats
  ./dDocent_filters DP3g95p5maf001.recode.vcf dDocent_filters_out
 
 Number of sites filtered based on allele balance at heterozygous loci, locus quality, and mapping quality / Depth
- 6215 of 53836
+ 6233 of 52242
 
 Are reads expected to overlap?  In other words, is fragment size less than 2X the read length?  Enter yes or no.
 no
 Number of additional sites filtered based on overlapping forward and reverse reads
- 11214 of 47621
+ 10368 of 46009
 
 Is this from a mixture of SE and PE libraries? Enter yes or no.
 no
 Number of additional sites filtered based on properly paired status
- 1512 of 36407
+ 1393 of 35641
 
 Number of sites filtered based on high depth and lower than 2*DEPTH quality score
- 2552 of 34895
-
+ 2290 of 34248
                                                Histogram of mean depth per site
 
-      500 +---------------------------------------------------------------------------------------------------------+
-          | +    +     +    +    +     +    +  **+     +    +     +    +    +     +    +    +     +    +    +     + |
-      450 |-+                              **  **         'meandepthpersite' using (bin($1,binwidth)):(1.0) *******-|
-          |                                ******                                                                   |
-          |                             *  ******                                                                   |
-      400 |-+                           *********                                                                 +-|
-          |                           ************                                                                  |
-      350 |-+                         **************                                                              +-|
+      450 +---------------------------------------------------------------------------------------------------------+
+          | +    +    +     +    +    +    *** * +    +    +     +    +    +     +    +    +     +    +    +    +   |
+          |                             ********          'meandepthpersite' using (bin($1,binwidth)):(1.0) ******* |
+      400 |-+                           ********                                                                  +-|
+          |                           * ********                                                                    |
+      350 |-+                         ********** *                                                                +-|
+          |                           ********** ***                                                                |
           |                           **************                                                                |
-      300 |-+                      * ****************                                                             +-|
-          |                        ****************** **                                                            |
-      250 |-+                    ******************** **                                                          +-|
-          |                      ******************** **** *                                                        |
-          |                    * ************************* *                                                        |
-      200 |-+                  *************************** * **                                                   +-|
-          |                  ************************************                                                   |
-      150 |-+                ************************************  *                                              +-|
-          |                 ************************************** **                                               |
-      100 |-+             **********************************************                                          +-|
-          |               **********************************************       **                                   |
-          |               **************************************************   **   *   * *    *                    |
-       50 |-+          ************************************************************** *************   **          +-|
-          | +    +  **********************************************************************************************+*|
+      300 |-+                       **************** **                                                           +-|
+          |                        *********************                                                            |
+      250 |-+                    ***********************                                                          +-|
+          |                      ***********************                                                            |
+          |                     ************************* *                                                         |
+      200 |-+                   **************************** *                                                    +-|
+          |                    ***************************** ***                                                    |
+      150 |-+                ***********************************  **                                              +-|
+          |                 ****************************************                                                |
+          |                 *****************************************                                               |
+      100 |-+             *********************************************                                           +-|
+          |               *********************************************  **    *       *                            |
+       50 |-+            ***************************************************  ** *** *****   *                    +-|
+          |            ************************************************************************ ***  **    *        |
+          | +    +  ************************************************************************************************|
         0 +---------------------------------------------------------------------------------------------------------+
-            15   30    45   60   75    90  105  120   135  150   165  180  195   210  225  240   255  270  285   300
+            15   30   45    60   75   90   105  120  135  150   165  180  195   210  225  240   255  270  285  300
                                                           Mean Depth
 
-If distrubtion looks normal, a 1.645 sigma cutoff (~90% of the data) would be 5441.5459
-The 95% cutoff would be 279
-Would you like to use a different maximum mean depth cutoff than 279, yes or no
+If distrubtion looks normal, a 1.645 sigma cutoff (~90% of the data) would be 5845.7314
+The 95% cutoff would be 282
+Would you like to use a different maximum mean depth cutoff than 282, yes or no
 no
 Number of sites filtered based on maximum mean depth
- 1874 of 34895
+ 1804 of 34248
 
 Number of sites filtered based on within locus depth mismatch
- 34 of 33021
+ 26 of 32444
 
 Total number of sites filtered
- 20849 of 53836
-
+ 19824 of 52242
 Remaining sites
- 32987
+ 32418
 
 Filtered VCF file is called Output_prefix.FIL.recode.vcf
 
@@ -600,16 +632,16 @@ vcftools --vcf DP3g95p5maf001.prim.vcf --remove-indels --recode --recode-INFO-al
 ### Cluster1
 
 ```
-After filtering, kept 21 out of 21 Individuals
+After filtering, kept 22 out of 22 Individuals
 Outputting VCF file...
-After filtering, kept 43341 out of a possible 46010 Sites
+After filtering, kept 42788 out of a possible 45383 Sites
 ```
 ### Cluster2
 
 ```
 After filtering, kept 18 out of 18 Individuals
 Outputting VCF file...
-After filtering, kept 35575 out of a possible 37810 Sites
+After filtering, kept 35092 out of a possible 37375 Sites
 ```
 ## Step8: HWE filter
 Setting -h 0.001
@@ -625,17 +657,16 @@ Processing population: PBF (4 inds)
 Processing population: WOB (1 inds)
 Processing population: WOF (12 inds)
 Outputting results of HWE test for filtered loci to 'filtered.hwe'
-Kept 43341 of a possible 43341 loci (filtered 0 loci)
-
+Kept 42788 of a possible 42788 loci (filtered 0 loci)
 ```
 
 ### Cluster2
 
 ```
 Processing population: EOB (8 inds)
-Processing population: WOB (11 inds)
+Processing population: WOB (10 inds)
 Outputting results of HWE test for filtered loci to 'filtered.hwe'
-Kept 35575 of a possible 35575 loci (filtered 0 loci)
+Kept 35092 of a possible 35092 loci (filtered 0 loci)
 ```
 
 ## rad_haplotyper
@@ -646,25 +677,25 @@ rad_haplotyper.pl -v SNP.DP3g95p5maf001.HWE.recode.vcf -x 20 -mp 1 -u 20 -ml 4 -
 
 ### Cluster1
 
-The script found 1592 loci to remove.
+The script found 1670 loci to remove.
 ```
-Removed 70 loci (1737 SNPs) with more than 20 SNPs at a locus
-Filtered 165 loci below missing data cutoff
-Filtered 1189 possible paralogs
-Filtered 238 loci with low coverage or genotyping errors
+Removed 75 loci (1859 SNPs) with more than 20 SNPs at a locus
+Filtered 176 loci below missing data cutoff
+Filtered 1183 possible paralogs
+Filtered 236 loci with low coverage or genotyping errors
 Filtered 0 loci with an excess of haplotypes
 ```
 
 ### Cluster2
 
-The script found another 1148 loci to remove.
+The script found another 1223 loci to remove.
 
 ```
-Removed 65 loci (1553 SNPs) with more than 20 SNPs at a locus
+Removed 60 loci (1483 SNPs) with more than 20 SNPs at a locus
 
-Filtered 168 loci below missing data cutoff
-Filtered 825 possible paralogs
-Filtered 155 loci with low coverage or genotyping errors
+Filtered 183 loci below missing data cutoff
+Filtered 836 possible paralogs
+Filtered 154 loci with low coverage or genotyping errors
 Filtered 0 loci with an excess of haplotypes
 ```
 
@@ -683,11 +714,11 @@ Now that we have the list we can parse through the VCF file and remove the bad R
 mawk '!/#/' SNP.DP3g95p5maf001.HWE.filtered.vcf | wc -l
 ```
 
-### Total loci in Cluster1 post SNP filtering: 29332
-### Total individuals in Cluster1 post SNP filtering: 21
+### Total loci in Cluster1 post SNP filtering:28584 
+### Total individuals in Cluster1 post SNP filtering: 22
 
-### Total loci in Cluster2 post SNP filtering: 24927
-### Total individuals in Cluster2 post SNP filtering: 19
+### Total loci in Cluster2 post SNP filtering: 24124 
+### Total individuals in Cluster2 post SNP filtering: 18
 
 ## 2. ddRAD data analysis for clusters
 ### Outlier detection:
