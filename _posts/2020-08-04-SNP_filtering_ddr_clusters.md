@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SNP filtering of clusters identified from full ddRAD data set
+title: Complete ddARD analysis of clusters identified from full ddRAD data set
 tags: [ ddRAD, epiRAD, Moorea, dDocent, SNP, filter ]
 ---
 
