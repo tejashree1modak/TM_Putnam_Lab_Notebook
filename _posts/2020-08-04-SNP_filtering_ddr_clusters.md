@@ -288,8 +288,7 @@ cluster1
 ```shell
 After filtering, kept 22 out of 22 Individuals
 Outputting VCF file...
-After filtering, kept 126566 out of a possible 396371 Sites
-Run Time = 13.00 seconds
+After filtering, kept 126539 out of a possible 396371 Sites
 ```
 
 Cluster2
@@ -297,8 +296,7 @@ Cluster2
 ```shell
 After filtering, kept 18 out of 18 Individuals
 Outputting VCF file...
-After filtering, kept 96428 out of a possible 273697 Sites
-Run Time = 8.00 seconds
+After filtering, kept 96451 out of a possible 273686 Sites
 ```
 ### Step2: Minimum mean depth: minDP 5
 
@@ -312,14 +310,14 @@ cluster1
 ```shell
 After filtering, kept 22 out of 22 Individuals
 Outputting VCF file...
-After filtering, kept 126566 out of a possible 126566 Sites
+After filtering, kept 126539 out of a possible 126539 Sites
 ```
 cluster2
 
 ```shell
 After filtering, kept 18 out of 18 Individuals
 Outputting VCF file...
-After filtering, kept 96428 out of a possible 96428 Sites
+After filtering, kept 96451 out of a possible 96451 Sites
 ```
 ### Step3: Filter missing indiv post minDP =5
 
@@ -359,20 +357,20 @@ After filtering, kept 96428 out of a possible 96428 Sites
          0.11           0.12           0.13           0.14            0.15           0.16           0.17           0.18
                                                        % of missing data
 
-The 85% cutoff would be 0.163843
+The 85% cutoff would be 0.163791
 Would you like to set a different cutoff, yes or no
 yes
 Please enter new cutoff
-0.175
-All individuals with more than 17.5% missing data will be removed.
-
-mawk '$5 > 0.175' raw.g5mac3dplm.imiss | cut -f1 | less
-
-INDV
+0.18
+All individuals with more than 18.0% missing data will be removed.
 
 After filtering, kept 22 out of 22 Individuals
 Outputting VCF file...
-After filtering, kept 126566 out of a possible 126566 Sites
+After filtering, kept 126539 out of a possible 126539 Sites
+
+mawk '$5 > 0.18' raw.g5mac3dplm.imiss | cut -f1 | less
+
+INDV
 
 ```
 
@@ -408,20 +406,19 @@ After filtering, kept 126566 out of a possible 126566 Sites
          0.09           0.1            0.11           0.12            0.13           0.14           0.15           0.16
                                                        % of missing data
 
-The 85% cutoff would be 0.126965
+The 85% cutoff would be 0.127028
 Would you like to set a different cutoff, yes or no
 yes
 Please enter new cutoff
 0.16
 All individuals with more than 16.0% missing data will be removed.
-
+After filtering, kept 18 out of 18 Individuals
+Outputting VCF file...
+After filtering, kept 96451 out of a possible 96451 Sites
 mawk '$5 > 0.16' raw.g5mac3dplm.imiss | cut -f1 | less
 
 INDV
 
-After filtering, kept 18 out of 18 Individuals
-Outputting VCF file...
-After filtering, kept 96428 out of a possible 96428 Sites
 ```
 
 ### Step4: Restrict the data to variants called in a high percentage of individuals and filter by mean depth of genotypes.
@@ -437,15 +434,15 @@ Cluster1
 ```
 After filtering, kept 22 out of 22 Individuals
 Outputting VCF file...
-After filtering, kept 71755 out of a possible 126566 Sites
+After filtering, kept 71743 out of a possible 126539 Sites
 ```
 
 Cluster2
 
 ```
-fter filtering, kept 18 out of 18 Individuals
+After filtering, kept 18 out of 18 Individuals
 Outputting VCF file...
-After filtering, kept 52242 out of a possible 96428 Sites
+After filtering, kept 52246 out of a possible 96451 Sites
 ```
 
 ### Step5: Filtering by population specific call rate when multiple localities are present
@@ -463,7 +460,7 @@ vcftools --vcf DP3g95maf001.recode.vcf --exclude-positions badloci --recode --re
 
 After filtering, kept 22 out of 22 Individuals
 Outputting VCF file...
-After filtering, kept 66375 out of a possible 71755 Sites
+After filtering, kept 66367 out of a possible 71743 Sites
 ```
 
 ### Cluster2
@@ -477,7 +474,7 @@ vcftools --vcf DP3g95maf001.recode.vcf --exclude-positions badloci --recode --re
 
 After filtering, kept 18 out of 18 Individuals
 Outputting VCF file...
-After filtering, kept 52242 out of a possible 52242 Sites
+After filtering, kept 52246 out of a possible 52246 Sites
 ```
 ## Step6: Used dDocent_filters script
 
@@ -487,21 +484,20 @@ After filtering, kept 52242 out of a possible 52242 Sites
 ./dDocent_filters DP3g95p5maf001.recode.vcf dDocent_filters_out
 
 Number of sites filtered based on allele balance at heterozygous loci, locus quality, and mapping quality / Depth
- 9342 of 66375
+ 9339 of 66367
 
 Are reads expected to overlap?  In other words, is fragment size less than 2X the read length?  Enter yes or no.
 no
 Number of additional sites filtered based on overlapping forward and reverse reads
- 13168 of 57033
+ 13167 of 57028
 
 Is this from a mixture of SE and PE libraries? Enter yes or no.
 no
 Number of additional sites filtered based on properly paired status
- 1723 of 43865
+ 1722 of 43861
 
 Number of sites filtered based on high depth and lower than 2*DEPTH quality score
- 3275 of 42142
-
+ 3272 of 42139
                                                Histogram of mean depth per site
 
       600 +---------------------------------------------------------------------------------------------------------+
@@ -531,26 +527,24 @@ Number of sites filtered based on high depth and lower than 2*DEPTH quality scor
             15   30    45   60   75    90  105   120  135  150   165  180  195   210  225   240  255  270   285  300
                                                           Mean Depth
 
-If distrubtion looks normal, a 1.645 sigma cutoff (~90% of the data) would be 6789.15295
+If distrubtion looks normal, a 1.645 sigma cutoff (~90% of the data) would be 6786.6567
 The 95% cutoff would be 278
 Would you like to use a different maximum mean depth cutoff than 278, yes or no
 no
 Number of sites filtered based on maximum mean depth
- 2239 of 42142
+ 2238 of 42139
 
 Number of sites filtered based on within locus depth mismatch
- 52 of 39903
+ 51 of 39901
 
 Total number of sites filtered
- 26524 of 66375
-
+ 26517 of 66367
 Remaining sites
- 39851
+ 39850
 
 Filtered VCF file is called Output_prefix.FIL.recode.vcf
 
 Filter stats stored in dDocent_filters_out.filterstats
-
 ```
 ### Cluster2
 
@@ -558,68 +552,67 @@ Filter stats stored in dDocent_filters_out.filterstats
  ./dDocent_filters DP3g95p5maf001.recode.vcf dDocent_filters_out
 
 Number of sites filtered based on allele balance at heterozygous loci, locus quality, and mapping quality / Depth
- 6233 of 52242
+ 6240 of 52246
 
 Are reads expected to overlap?  In other words, is fragment size less than 2X the read length?  Enter yes or no.
 no
 Number of additional sites filtered based on overlapping forward and reverse reads
- 10368 of 46009
+ 10371 of 46006
 
 Is this from a mixture of SE and PE libraries? Enter yes or no.
 no
 Number of additional sites filtered based on properly paired status
- 1393 of 35641
+ 1387 of 35635
 
 Number of sites filtered based on high depth and lower than 2*DEPTH quality score
- 2290 of 34248
+ 2293 of 34248
                                                Histogram of mean depth per site
 
       450 +---------------------------------------------------------------------------------------------------------+
-          | +    +    +     +    +    +    *** * +    +    +     +    +    +     +    +    +     +    +    +    +   |
+          | +    +    +     +    +    +    *** * +    +     +    +    +     +    +    +     +    +    +    +     +  |
           |                             ********          'meandepthpersite' using (bin($1,binwidth)):(1.0) ******* |
       400 |-+                           ********                                                                  +-|
           |                           * ********                                                                    |
-      350 |-+                         ********** *                                                                +-|
-          |                           ********** ***                                                                |
+      350 |-+                         ************                                                                +-|
           |                           **************                                                                |
-      300 |-+                       **************** **                                                           +-|
-          |                        *********************                                                            |
-      250 |-+                    ***********************                                                          +-|
+          |                           **************                                                                |
+      300 |-+                       ****************  *                                                           +-|
+          |                        ****************** **                                                            |
+      250 |-+                    ******************** **                                                          +-|
           |                      ***********************                                                            |
-          |                     ************************* *                                                         |
-      200 |-+                   **************************** *                                                    +-|
-          |                    ***************************** ***                                                    |
-      150 |-+                ***********************************  **                                              +-|
+          |                     ************************* **                                                        |
+      200 |-+                   ******************************                                                    +-|
+          |                    *********************************                                                    |
+      150 |-+                ************************************ **                                              +-|
           |                 ****************************************                                                |
           |                 *****************************************                                               |
       100 |-+             *********************************************                                           +-|
-          |               *********************************************  **    *       *                            |
-       50 |-+            ***************************************************  ** *** *****   *                    +-|
-          |            ************************************************************************ ***  **    *        |
+          |               *********************************************  **    *       **                           |
+       50 |-+            **************************************************** **  **  ****   **                   +-|
+          |            ****************************************************************************  **    *        |
           | +    +  ************************************************************************************************|
         0 +---------------------------------------------------------------------------------------------------------+
-            15   30   45    60   75   90   105  120  135  150   165  180  195   210  225  240   255  270  285  300
+            15   30   45    60   75   90   105  120  135   150  165  180   195  210  225   240  255  270  285   300
                                                           Mean Depth
 
-If distrubtion looks normal, a 1.645 sigma cutoff (~90% of the data) would be 5845.7314
-The 95% cutoff would be 282
-Would you like to use a different maximum mean depth cutoff than 282, yes or no
+If distrubtion looks normal, a 1.645 sigma cutoff (~90% of the data) would be 5820.8094
+The 95% cutoff would be 281
+Would you like to use a different maximum mean depth cutoff than 281, yes or no
 no
 Number of sites filtered based on maximum mean depth
- 1804 of 34248
+ 1811 of 34248
 
 Number of sites filtered based on within locus depth mismatch
- 26 of 32444
+ 26 of 32437
 
 Total number of sites filtered
- 19824 of 52242
+ 19835 of 52246
 Remaining sites
- 32418
+ 32411
 
 Filtered VCF file is called Output_prefix.FIL.recode.vcf
 
 Filter stats stored in dDocent_filters_out.filterstats
-
 ```
 ## Step7: Convert our variant calls to SNPs
 
@@ -634,14 +627,14 @@ vcftools --vcf DP3g95p5maf001.prim.vcf --remove-indels --recode --recode-INFO-al
 ```
 After filtering, kept 22 out of 22 Individuals
 Outputting VCF file...
-After filtering, kept 42788 out of a possible 45383 Sites
+After filtering, kept 42789 out of a possible 45384 Sites
 ```
 ### Cluster2
 
 ```
 After filtering, kept 18 out of 18 Individuals
 Outputting VCF file...
-After filtering, kept 35092 out of a possible 37375 Sites
+After filtering, kept 35082 out of a possible 37362 Sites
 ```
 ## Step8: HWE filter
 Setting -h 0.001
@@ -657,7 +650,7 @@ Processing population: PBF (4 inds)
 Processing population: WOB (1 inds)
 Processing population: WOF (12 inds)
 Outputting results of HWE test for filtered loci to 'filtered.hwe'
-Kept 42788 of a possible 42788 loci (filtered 0 loci)
+Kept 42789 of a possible 42789 loci (filtered 0 loci)
 ```
 
 ### Cluster2
@@ -666,7 +659,7 @@ Kept 42788 of a possible 42788 loci (filtered 0 loci)
 Processing population: EOB (8 inds)
 Processing population: WOB (10 inds)
 Outputting results of HWE test for filtered loci to 'filtered.hwe'
-Kept 35092 of a possible 35092 loci (filtered 0 loci)
+Kept 35082 of a possible 35082 loci (filtered 0 loci)
 ```
 
 ## rad_haplotyper
@@ -677,25 +670,25 @@ rad_haplotyper.pl -v SNP.DP3g95p5maf001.HWE.recode.vcf -x 20 -mp 1 -u 20 -ml 4 -
 
 ### Cluster1
 
-The script found 1670 loci to remove.
+The script found 1671 loci to remove.
 ```
-Removed 75 loci (1859 SNPs) with more than 20 SNPs at a locus
-Filtered 176 loci below missing data cutoff
-Filtered 1183 possible paralogs
-Filtered 236 loci with low coverage or genotyping errors
+Removed 75 loci (1856 SNPs) with more than 20 SNPs at a locus
+Filtered 177 loci below missing data cutoff
+Filtered 1184 possible paralogs
+Filtered 235 loci with low coverage or genotyping errors
 Filtered 0 loci with an excess of haplotypes
 ```
 
 ### Cluster2
 
-The script found another 1223 loci to remove.
+The script found another 1235 loci to remove.
 
 ```
 Removed 60 loci (1483 SNPs) with more than 20 SNPs at a locus
 
-Filtered 183 loci below missing data cutoff
-Filtered 836 possible paralogs
-Filtered 154 loci with low coverage or genotyping errors
+Filtered 185 loci below missing data cutoff
+Filtered 839 possible paralogs
+Filtered 151 loci with low coverage or genotyping errors
 Filtered 0 loci with an excess of haplotypes
 ```
 
@@ -714,11 +707,13 @@ Now that we have the list we can parse through the VCF file and remove the bad R
 mawk '!/#/' SNP.DP3g95p5maf001.HWE.filtered.vcf | wc -l
 ```
 
-### Total loci in Cluster1 post SNP filtering:28584 
-### Total individuals in Cluster1 post SNP filtering: 22
+### CLuster1:
+- **Total loci in Cluster1 post SNP filtering:28591** 
+- **Total individuals in Cluster1 post SNP filtering: 22**
 
-### Total loci in Cluster2 post SNP filtering: 24124 
-### Total individuals in Cluster2 post SNP filtering: 18
+### Cluster2:
+- **Total loci in Cluster2 post SNP filtering: 24125** 
+- **Total individuals in Cluster2 post SNP filtering: 18**
 
 ## 2. ddRAD data analysis for clusters
 ### Outlier detection:
@@ -768,16 +763,14 @@ mawk '!/#/' SNP.DP3g95p5maf001.HWE.filtered.vcf | wc -l
 ### FST using fstat
 Cluster1: 
 ```
-              pop       Ind
-Total 0.001843257 0.0981024
-pop   0.000000000 0.0964369
-
+              pop        Ind
+Total 0.001857024 0.09802415
+pop   0.000000000 0.09634604
 ```
 Cluster2: 
 
 ```
                pop        Ind
-Total 0.0004722456 0.07662695
-pop   0.0000000000 0.07619068
-
+Total 0.0003630274 0.07682229
+pop   0.0000000000 0.07648703
 ```
