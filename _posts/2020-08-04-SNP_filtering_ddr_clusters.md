@@ -716,7 +716,7 @@ mawk '!/#/' SNP.DP3g95p5maf001.HWE.filtered.vcf | wc -l
 - **Total individuals in Cluster2 post SNP filtering: 18**
 
 ## 2. ddRAD data analysis for clusters
-### Outlier detection:
+### Outlier detection using pcadapt:
 
 ### 1. Choosing the number of principal components:
 
@@ -753,6 +753,18 @@ mawk '!/#/' SNP.DP3g95p5maf001.HWE.filtered.vcf | wc -l
   | clust1| clust2
 :-------------------------:|:------:
   ![]({{site.baseurl}}/images/ddRAD_analysis_out/clusters/statdist_clust1.png) | ![]({{site.baseurl}}/images/ddRAD_analysis_out/clusters/statdist_clust2.png)
+
+### 7. Outliers at alpha < 0.05
+
+- Cluster1: 36
+- Cluster2: 25
+
+### Outlier detection using OutFlank:
+
+- Cluster1: 71
+- Cluster2: 0
+
+No common loci identified between the two methods.
 
 ### MDS
 
