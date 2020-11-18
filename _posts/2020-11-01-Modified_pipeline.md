@@ -647,8 +647,9 @@ vcftools --vcf DP3g95maf001.recode.vcf --keep 2.keep --missing-site --out 2
 vcftools --vcf DP3g95maf001.recode.vcf --keep 3.keep --missing-site --out 3
 vcftools --vcf DP3g95maf001.recode.vcf --keep 4.keep --missing-site --out 4
 cat 1.lmiss 2.lmiss 3.lmiss 4.lmiss | mawk '!/CHR/' | mawk '$6 > 0.1' | cut -f1,2 >> badloci
+vcftools --vcf DP3g95maf001.recode.vcf --exclude-positions badloci --recode --recode-INFO-all --out DP3g95p5maf001
 
-fter filtering, kept 56 out of 56 Individuals
+After filtering, kept 56 out of 56 Individuals
 Outputting VCF file...
 After filtering, kept 87616 out of a possible 90254 Sites
 
@@ -1304,6 +1305,73 @@ The plot shows 0.9 as the optimal similarity threshold.
 
 `RefMapOpt.sh 2 6 2 6 0.9 PE 20`
 
+```shell
+❯ column -t -s $'\t' mapping.results
+Cov      Non0Cov  Contigs  MeanContigsMapped  K1  K2  SUM Mapped  SUM Properly  Mean Mapped  Mean Properly  MisMatched
+115.139  169.395  45006    30450.6            2   2   62184592    57056335      5.18205e+06  4.75469e+06    152962
+173.658  212.952  28860    23475.2            2   3   60143223    55563249      5.01194e+06  4.63027e+06    112633
+210.025  237.405  22786    20128.4            2   4   57430233    53335471      4.78585e+06  4.44462e+06    85266.1
+232.32   251.93   19314    17794.6            2   5   53847160    49871279      4.48726e+06  4.15594e+06    78210.1
+250.174  264.634  16629    15710.7            2   6   49924792    46070374      4.1604e+06   3.8392e+06     71423.3
+157.101  209.089  32874    24652.8            3   2   61976199    56849424      5.16468e+06  4737452        148131
+193.611  230.792  25818    21633.2            3   3   59986094    55261401      4.99884e+06  4.60512e+06    125352
+219.978  246.746  21657    19289.2            3   4   57171343    53050666      4.76428e+06  4.42089e+06    87394.7
+240.112  259.609  18646    17234.1            3   5   53728519    49724237      4.47738e+06  4.14369e+06    82374.8
+258.866  273.334  16104    15244.2            3   6   50028488    46307348      4.16904e+06  3.85895e+06    65866.4
+163.566  216.162  31568    23850              4   2   61963309    56926275      5.16361e+06  4.74386e+06    141518
+197.21   234.517  25269    21225.9            4   3   59802044    55220282      4.9835e+06   4.60169e+06    113698
+222.599  249.277  21264    18971.8            4   4   56802927    52438826      4.73358e+06  4.3699e+06     108330
+243.425  262.806  18330    16967.1            4   5   53546681    49696912      4.46222e+06  4.14141e+06    72349.9
+260.319  274.708  15843    15006.3            4   6   49493872    45781538      4.12449e+06  3.81513e+06    70571.8
+165.98   218.947  31098    23540.9            5   2   61941838    56820418      5.16182e+06  4.73503e+06    152504
+199.335  236.588  24936    20986.8            5   3   59649854    54966459      4.97082e+06  4.58054e+06    122234
+224.413  250.952  20977    18742.3            5   4   56492927    51928373      4.70774e+06  4.32736e+06    123467
+245.133  264.278  18073    16753              5   5   53166501    49169068      4.43054e+06  4.09742e+06    77644.9
+262.851  277.083  15598    14790.4            5   6   49202472    45474791      4100206      3.78957e+06    70078.3
+167.45   220.307  30723    23319              6   2   61736794    56652019      5.14473e+06  4.721e+06      151801
+200.662  237.693  24652    20789.4            6   3   59362905    54651770      4.94691e+06  4.55431e+06    125970
+226.587  252.808  20730    18563.8            6   4   56368602    51884947      4.69738e+06  4.32375e+06    110975
+246.752  265.647  17855    16574.5            6   5   52872061    48949740      4.40601e+06  4079145        78545.2
+264.483  278.337  15368    14597.2            6   6   48777980    45077024      4.06483e+06  3.75642e+06    68517.8
+
+❯ sort -k 10 -n -r  mapping.results | column -t -s $'\t'
+157.101  209.089  32874    24652.8            3   2   61976199    56849424      5.16468e+06  4737452        148131
+246.752  265.647  17855    16574.5            6   5   52872061    48949740      4.40601e+06  4079145        78545.2
+115.139  169.395  45006    30450.6            2   2   62184592    57056335      5.18205e+06  4.75469e+06    152962
+163.566  216.162  31568    23850              4   2   61963309    56926275      5.16361e+06  4.74386e+06    141518
+165.98   218.947  31098    23540.9            5   2   61941838    56820418      5.16182e+06  4.73503e+06    152504
+167.45   220.307  30723    23319              6   2   61736794    56652019      5.14473e+06  4.721e+06      151801
+173.658  212.952  28860    23475.2            2   3   60143223    55563249      5.01194e+06  4.63027e+06    112633
+193.611  230.792  25818    21633.2            3   3   59986094    55261401      4.99884e+06  4.60512e+06    125352
+197.21   234.517  25269    21225.9            4   3   59802044    55220282      4.9835e+06   4.60169e+06    113698
+199.335  236.588  24936    20986.8            5   3   59649854    54966459      4.97082e+06  4.58054e+06    122234
+200.662  237.693  24652    20789.4            6   3   59362905    54651770      4.94691e+06  4.55431e+06    125970
+210.025  237.405  22786    20128.4            2   4   57430233    53335471      4.78585e+06  4.44462e+06    85266.1
+219.978  246.746  21657    19289.2            3   4   57171343    53050666      4.76428e+06  4.42089e+06    87394.7
+222.599  249.277  21264    18971.8            4   4   56802927    52438826      4.73358e+06  4.3699e+06     108330
+224.413  250.952  20977    18742.3            5   4   56492927    51928373      4.70774e+06  4.32736e+06    123467
+226.587  252.808  20730    18563.8            6   4   56368602    51884947      4.69738e+06  4.32375e+06    110975
+232.32   251.93   19314    17794.6            2   5   53847160    49871279      4.48726e+06  4.15594e+06    78210.1
+240.112  259.609  18646    17234.1            3   5   53728519    49724237      4.47738e+06  4.14369e+06    82374.8
+243.425  262.806  18330    16967.1            4   5   53546681    49696912      4.46222e+06  4.14141e+06    72349.9
+245.133  264.278  18073    16753              5   5   53166501    49169068      4.43054e+06  4.09742e+06    77644.9
+258.866  273.334  16104    15244.2            3   6   50028488    46307348      4.16904e+06  3.85895e+06    65866.4
+250.174  264.634  16629    15710.7            2   6   49924792    46070374      4.1604e+06   3.8392e+06     71423.3
+260.319  274.708  15843    15006.3            4   6   49493872    45781538      4.12449e+06  3.81513e+06    70571.8
+262.851  277.083  15598    14790.4            5   6   49202472    45474791      4100206      3.78957e+06    70078.3
+264.483  278.337  15368    14597.2            6   6   48777980    45077024      4.06483e+06  3.75642e+06    68517.8
+Cov      Non0Cov  Contigs  MeanContigsMapped  K1  K2  SUM Mapped  SUM Properly  Mean Mapped  Mean Properly  MisMatched
+
+Cov      Non0Cov  Contigs  MeanContigsMapped  K1  K2  SUM Mapped  SUM Properly  Mean Mapped  Mean Properly  MisMatched
+115.139  169.395  45006    30450.6            2   2   62184592    57056335      5.18205e+06  4.75469e+06    152962
+163.566  216.162  31568    23850              4   2   61963309    56926275      5.16361e+06  4.74386e+06    141518
+165.98   218.947  31098    23540.9            5   2   61941838    56820418      5.16182e+06  4.73503e+06    152504
+167.45   220.307  30723    23319              6   2   61736794    56652019      5.14473e+06  4.721e+06      151801
+
+
+```
+**With the same logic as before K1=4 and K2=2 were chosen for reference assembly.**
+
 #### Cluster 2: 
 
 1. ReferenceOpt.sh
@@ -1721,6 +1789,708 @@ Email
 xxxx@uri.edu
 
 ```
+
+**Filtering reference assembly for coral contigs only**
+
+#### Cluster 1: 
+
+```shell
+blastn -db /home/tejashree/Moorea/genomes/coral -query /home/tejashree/Moorea/ddocent/mod_pipeline/cluster_variation/clust1/reference_assembly/reference.fasta -evalue 0.001 -outfmt 6 -out /home/tejashree/Moorea/blast/mod_pipeline/cluster_variation/clust1/coral_hits_clust1 -num_threads 20
+cut -f1 coral_hits_clust1 | uniq > uniq_coral_hits_clust1.txt
+python3 subset_fasta.py -i /home/tejashree/Moorea/ddocent/mod_pipeline/cluster_variation/clust1/reference_assembly/reference.fasta -f /home/tejashree/Moorea/blast/mod_pipeline/cluster_variation/clust1/uniq_coral_hits_clust1.txt -o /home/tejashree/Moorea/ddocent/mod_pipeline/cluster_variation/clust1/reference_assembly/coral_reference.fasta
+
+```
+
+#### Cluster 2: 
+
+```shell
+blastn -db /home/tejashree/Moorea/genomes/coral -query /home/tejashree/Moorea/ddocent/mod_pipeline/cluster_variation/clust2/reference_assembly/reference.fasta -evalue 0.001 -outfmt 6 -out /home/tejashree/Moorea/blast/mod_pipeline/cluster_variation/clust2/coral_hits_clust2 -num_threads 20
+cut -f1 coral_hits_clust2 | uniq > uniq_coral_hits_clust2.txt
+python3 subset_fasta.py -i /home/tejashree/Moorea/ddocent/mod_pipeline/cluster_variation/clust2/reference_assembly/reference.fasta -f /home/tejashree/Moorea/blast/mod_pipeline/cluster_variation/clust2/uniq_coral_hits_clust2.txt -o /home/tejashree/Moorea/ddocent/mod_pipeline/cluster_variation/clust2/reference_assembly/coral_reference.fasta
+```
+
+This was moved to respective cluster dir  and renamed as reference.fasta since dDocent will look for the specific file name.
+
+### Step8: Mapping reads to filtered reference:
+
+I created symlinks for all samples and their trimmed files to here and used dDocent for mapping to reference.
+
+#### Cluster 1: 
+
+```shell
+
+Number of Processors
+20
+Maximum Memory
+0
+Trimming
+no
+Assembly?
+no
+Type_of_Assembly
+PE
+Clustering_Similarity%
+0.9
+Minimum within individual coverage level to include a read for assembly (K1)
+
+Minimum number of individuals a read must be present in to include for assembly (K2)
+
+Mapping_Reads?
+yes
+Mapping_Match_Value
+1
+Mapping_MisMatch_Value
+3
+Mapping_GapOpen_Penalty
+5
+Calling_SNPs?
+yes
+Email
+xxx@uri.edu
+```
+
+#### Cluster 2: 
+
+```shell
+Number of Processors
+20
+Maximum Memory
+0
+Trimming
+no
+Assembly?
+no
+Type_of_Assembly
+PE
+Clustering_Similarity%
+0.9
+Minimum within individual coverage level to include a read for assembly (K1)
+3
+Minimum number of individuals a read must be present in to include for assembly (K2)
+2
+Mapping_Reads?
+yes
+Mapping_Match_Value
+1
+Mapping_MisMatch_Value
+3
+Mapping_GapOpen_Penalty
+5
+Calling_SNPs?
+yes
+Email
+
+```
+
+### Step 9: SNP calling per cluster
+
+A new directory was made for this purpose housed in ddr_snp_calling inside clust1 or clust2 for their respective analysis. 
+All related files required for SNP calling for all the ddRAD samples per cluster were symlinked to this directory and dDocent was used for SNP calling. 
+
+#### CLuster 1: 
+
+```shell
+
+Number of Processors
+20
+Maximum Memory
+0
+Trimming
+no
+Assembly?
+no
+Type_of_Assembly
+
+Clustering_Similarity%
+
+Minimum within individual coverage level to include a read for assembly (K1)
+
+Minimum number of individuals a read must be present in to include for assembly (K2)
+
+Mapping_Reads?
+no
+Mapping_Match_Value
+
+Mapping_MisMatch_Value
+
+Mapping_GapOpen_Penalty
+
+Calling_SNPs?
+yes
+Email
+```
+
+#### Cluster 2: 
+
+```shell
+
+Number of Processors
+20
+Maximum Memory
+0
+Trimming
+no
+Assembly?
+no
+Type_of_Assembly
+
+Clustering_Similarity%
+
+Minimum within individual coverage level to include a read for assembly (K1)
+
+Minimum number of individuals a read must be present in to include for assembly (K2)
+
+Mapping_Reads?
+no
+Mapping_Match_Value
+
+Mapping_MisMatch_Value
+
+Mapping_GapOpen_Penalty
+
+Calling_SNPs?
+yes
+Email
+```
+
+**SNP Filtering**
+
+Housed in /home/tejashree/Moorea/ddocent/cluster_variaiton/clust1/ddr_snp_calling/snp_filtering for cluster 1 and /home/tejashree/Moorea/ddocent/cluster_variaiton/clust2/ddr_snp_calling/snp_filtering/ for cluster 2. Generated a symlink to the final vcf output from SNP calling: ln -s ../TotalRawSNPs.vcf in this dir for filtration. All steps are the same for both clusters and cluster specific results are shown below for each step. 
+
+1. Step1: 50% of individuals, a minimum quality score of 30, and a minor allele count of 3
+
+`vcftools --vcf TotalRawSNPs.vcf --max-missing 0.5 --mac 3 --minQ 30 --recode --recode-INFO-all --out raw.g5mac3`
+
+#### Cluster 1: 
+
+```shell
+
+After filtering, kept 26 out of 26 Individuals
+Outputting VCF file...
+After filtering, kept 130368 out of a possible 400358 Sites
+```
+
+#### Cluster 2: 
+
+```shell
+After filtering, kept 18 out of 18 Individuals
+Outputting VCF file...
+After filtering, kept 99445 out of a possible 286505 Sites
+
+```
+
+2. Step2: Minimum mean depth: minDP 5
+
+`vcftools --vcf raw.g5mac3.recode.vcf --minDP 5 --recode --recode-INFO-all --out raw.g5mac3dp5`
+
+#### Cluster 1: 
+
+```shell
+
+After filtering, kept 26 out of 26 Individuals
+Outputting VCF file...
+After filtering, kept 130368 out of a possible 130368 Sites
+```
+
+#### Cluster 2: 
+
+```shell
+After filtering, kept 18 out of 18 Individuals
+Outputting VCF file...
+After filtering, kept 99445 out of a possible 99445 Sites
+
+```
+
+3. Filter missing indiv post minDP =5
+
+`./filter_missing_ind.sh raw.g5mac3dp5.recode.vcf raw.g5mac3dplm`
+
+#### Cluster 1: 
+
+```shell
+
+After filtering, kept 26 out of 26 Individuals
+Outputting Individual Missingness
+After filtering, kept 130368 out of a possible 130368 Sites
+Run Time = 1.00 seconds
+
+
+                                          Histogram of % missing data per individual
+
+       14 +---------------------------------------------------------------------------------------------------------+
+          |            +            +             +            +            +             +            +            |
+          |            ****************************           'totalmissing' using (bin($1,binwidth)):(1.0) ******* |
+       12 |-+          *                          *                                                               +-|
+          |            *                          *                                                                 |
+          |            *                          *                                                                 |
+          |            *                          *                                                                 |
+       10 |-+          *                          *                                                               +-|
+          |            *                          *                                                                 |
+          |            *                          *                                                                 |
+        8 |-+          *                          *                                                               +-|
+          |            *                          *                                                                 |
+          |            *                          *                                                                 |
+        6 |-+          *                          *                                                               +-|
+          |            *                          *                                                                 |
+          |            *                          *                                                    *************|
+        4 |-+          *                          *                         ****************************          +-|
+          |            *                          *                         *                          *            |
+          |            *                          ***************************                          *            |
+          |            *                          *                         *                          *            |
+        2 |-+          *                          *                         *                          *          +-|
+          |*************                          *                         *                          *            |
+          |            *            +             *            +            *             +            *            |
+        0 +---------------------------------------------------------------------------------------------------------+
+        0.115         0.12        0.125          0.13        0.135         0.14         0.145         0.15        0.155
+                                                       % of missing data
+
+The 85% cutoff would be 0.15118
+Would you like to set a different cutoff, yes or no
+yes
+Please enter new cutoff
+0.155
+All individuals with more than 15.5% missing data will be removed.
+After filtering, kept 26 out of 26 Individuals
+Outputting VCF file...
+After filtering, kept 130368 out of a possible 130368 Sites
+
+```
+
+#### Cluster 2: 
+
+```shell
+After filtering, kept 18 out of 18 Individuals
+Outputting Individual Missingness
+After filtering, kept 99445 out of a possible 99445 Sites
+Run Time = 1.00 seconds
+
+
+                                          Histogram of % missing data per individual
+
+        6 +---------------------------------------------------------------------------------------------------------+
+          |              *              *              +               +              +              +              |
+          |              *              *                     'totalmissing' using (bin($1,binwidth)):(1.0) ******* |
+          |              *              *                                                                           |
+        5 |-+            *              *              *****************                                          +-|
+          |              *              *              *               *                                            |
+          |              *              *              *               *                                            |
+          |              *              *              *               *                                            |
+        4 |-+            *              *              *               *                                          +-|
+          |              *              *              *               *                                            |
+          |              *              *              *               *                                            |
+        3 |-+            *              ****************               *                                          +-|
+          |              *              *              *               *                                            |
+          |              *              *              *               *                                            |
+          |              *              *              *               *                                            |
+        2 |***************              *              *               *                                          +-|
+          |              *              *              *               *                                            |
+          |              *              *              *               *                                            |
+          |              *              *              *               *                                            |
+        1 |-+            *              *              *               **************************************     +-|
+          |              *              *              *               *                     *              *       |
+          |              *              *              *               *                     *              *       |
+          |              *              *              *               *              +      *       +      *       |
+        0 +---------------------------------------------------------------------------------------------------------+
+         0.1            0.11           0.12           0.13            0.14           0.15           0.16           0.17
+                                                       % of missing data
+
+The 85% cutoff would be 0.137332
+Would you like to set a different cutoff, yes or no
+0.165
+All individuals with more than 16.5% missing data will be removed.
+After filtering, kept 18 out of 18 Individuals
+Outputting VCF file...
+After filtering, kept 99445 out of a possible 99445 Sites
+
+```
+
+4. Restrict the data to variants called in a high percentage of individuals and filter by mean depth of genotypes
+
+This applied a genotype call rate (95%) across all individuals. Setting maf = 0.001
+
+`vcftools --vcf raw.g5mac3dplm.recode.vcf --max-missing 0.95 --maf 0.001 --recode --recode-INFO-all --out DP3g95maf001 --min-meanDP 20`
+
+#### Cluster1: 
+
+```shell
+
+After filtering, kept 26 out of 26 Individuals
+Outputting VCF file...
+After filtering, kept 74505 out of a possible 130368 Sites
+
+```
+
+#### Cluster 2: 
+
+```shell
+
+After filtering, kept 18 out of 18 Individuals
+Outputting VCF file...
+After filtering, kept 52142 out of a possible 99445 Sites
+
+```
+
+5. Filtering by population specific call rate when multiple localities are present
+
+#### Cluster 1: 
+
+```shell
+
+mawk '$2 == "EOB"' popmap > 1.keep && mawk '$2 == "PBF"' popmap > 2.keep && mawk '$2 == "WOF"' popmap > 3.keep && mawk '$2 == "WOB"' popmap > 4.keep
+vcftools --vcf DP3g95maf001.recode.vcf --keep 1.keep --missing-site --out 1
+vcftools --vcf DP3g95maf001.recode.vcf --keep 2.keep --missing-site --out 2
+vcftools --vcf DP3g95maf001.recode.vcf --keep 3.keep --missing-site --out 3
+vcftools --vcf DP3g95maf001.recode.vcf --keep 4.keep --missing-site --out 4
+cat 1.lmiss 2.lmiss 3.lmiss 4.lmiss | mawk '!/CHR/' | mawk '$6 > 0.1' | cut -f1,2 >> badloci
+vcftools --vcf DP3g95maf001.recode.vcf --exclude-positions badloci --recode --recode-INFO-all --out DP3g95p5maf001
+
+After filtering, kept 26 out of 26 Individuals
+Outputting VCF file...
+After filtering, kept 69108 out of a possible 74505 Sites
+```
+
+
+#### Cluster 2: 
+
+```shell
+
+mawk '$2 == "EOB"' popmap > 1.keep && mawk '$2 == "WOB"' popmap > 2.keep
+vcftools --vcf DP3g95maf001.recode.vcf --keep 1.keep --missing-site --out 1
+vcftools --vcf DP3g95maf001.recode.vcf --keep 2.keep --missing-site --out 2
+cat 1.lmiss 2.lmiss | mawk '!/CHR/' | mawk '$6 > 0.1' | cut -f1,2 >> badloci
+vcftools --vcf DP3g95maf001.recode.vcf --exclude-positions badloci --recode --recode-INFO-all --out DP3g95p5maf001
+
+
+After filtering, kept 18 out of 18 Individuals
+Outputting VCF file...
+After filtering, kept 52142 out of a possible 52142 Sites
+
+```
+
+6. Used dDocent_filters script
+
+
+#### Cluster 1: 
+
+```shell
+
+./dDocent_filters DP3g95p5maf001.recode.vcf dDocent_filters_out
+This script will automatically filter a FreeBayes generated VCF file using criteria related to site depth,
+quality versus depth, strand representation, allelic balance at heterzygous individuals, and paired read representation.
+The script assumes that loci and individuals with low call rates (or depth) have already been removed.
+
+Contact Jon Puritz (jpuritz@gmail.com) for questions and see script comments for more details on particular filters
+
+Number of sites filtered based on allele balance at heterozygous loci, locus quality, and mapping quality / Depth
+ 9446 of 69108
+
+Are reads expected to overlap?  In other words, is fragment size less than 2X the read length?  Enter yes or no.
+no
+Number of additional sites filtered based on overlapping forward and reverse reads
+ 13590 of 59662
+
+Is this from a mixture of SE and PE libraries? Enter yes or no.
+no
+Number of additional sites filtered based on properly paired status
+ 1683 of 46072
+
+Number of sites filtered based on high depth and lower than 2*DEPTH quality score
+ 3655 of 44389
+
+                                               Histogram of mean depth per site
+
+      600 +---------------------------------------------------------------------------------------------------------+
+          | +    +     +    +    +     +    +     +    +    +     +    +    +     +    +     +    +    +     +    + |
+          |                                **             'meandepthpersite' using (bin($1,binwidth)):(1.0) ******* |
+          |                              ****                                                                       |
+      500 |-+                         *******                                                                     +-|
+          |                          ********                                                                       |
+          |                       ** ********* *                                                                    |
+          |                       ************ *                                                                    |
+      400 |-+                    ****************                                                                 +-|
+          |                     ******************                                                                  |
+          |                     ******************* *                                                               |
+      300 |-+                   ******************* *                                                             +-|
+          |                    ******************** * *                                                             |
+          |                   *****************************                                                         |
+          |                   *****************************   **                                                    |
+      200 |-+              ********************************  ***                                                  +-|
+          |              * ********************************* ******                                                 |
+          |             *********************************************  **                                           |
+          |             **************************************************                                          |
+      100 |-+          ***************************************************   ***                                  +-|
+          |          ***************************************************************                   **           |
+          |         ***************************************************************** ************ ******   *** *   |
+          | +    + ************************************************************************************************ |
+        0 +---------------------------------------------------------------------------------------------------------+
+            15   30    45   60   75    90  105   120  135  150   165  180  195   210  225   240  255  270   285  300
+                                                          Mean Depth
+
+If distrubtion looks normal, a 1.645 sigma cutoff (~90% of the data) would be 7688.64105
+The 95% cutoff would be 278
+Would you like to use a different maximum mean depth cutoff than 278, yes or no
+no
+Number of sites filtered based on maximum mean depth
+ 2408 of 44389
+
+Number of sites filtered based on within locus depth mismatch
+ 45 of 41981
+
+Total number of sites filtered
+ 27172 of 69108
+Remaining sites
+ 41936
+
+Filtered VCF file is called dDocent_filters_out.FIL.recode.vcf
+
+Filter stats stored in dDocent_filters_out.filterstats
+
+
+```
+
+#### Cluster 2: 
+
+```shell
+./dDocent_filters DP3g95p5maf001.recode.vcf dDocent_filters_out
+This script will automatically filter a FreeBayes generated VCF file using criteria related to site depth,
+quality versus depth, strand representation, allelic balance at heterzygous individuals, and paired read representation.
+The script assumes that loci and individuals with low call rates (or depth) have already been removed.
+
+Contact Jon Puritz (jpuritz@gmail.com) for questions and see script comments for more details on particular filters
+
+Number of sites filtered based on allele balance at heterozygous loci, locus quality, and mapping quality / Depth
+ 5890 of 52142
+
+Are reads expected to overlap?  In other words, is fragment size less than 2X the read length?  Enter yes or no.
+no
+Number of additional sites filtered based on overlapping forward and reverse reads
+ 10712 of 46252
+
+Is this from a mixture of SE and PE libraries? Enter yes or no.
+no
+Number of additional sites filtered based on properly paired status
+ 1322 of 35540
+
+Number of sites filtered based on high depth and lower than 2*DEPTH quality score
+ 2417 of 34218
+                                               Histogram of mean depth per site
+
+      450 +---------------------------------------------------------------------------------------------------------+
+          | +    +    +     +    +    +    * * * +    +    +     +    +    +    +     +    +    +     +    +    +   |
+          |                             * ** ***          'meandepthpersite' using (bin($1,binwidth)):(1.0) ******* |
+      400 |-+                           ********                                                                  +-|
+          |                           * ********  *                                                                 |
+      350 |-+                         * ***********                                                               +-|
+          |                           *************                                                                 |
+          |                          **************                                                                 |
+      300 |-+                       **************** **                                                           +-|
+          |                        ***************** ***                                                            |
+      250 |-+                    ***********************  *                                                       +-|
+          |                      ***********************  *                                                         |
+          |                     ************************  *                                                         |
+      200 |-+                   ******************************                                                    +-|
+          |                  * *********************************                                                    |
+      150 |-+               *************************************                                                 +-|
+          |                 ************************************* *                                                 |
+          |                 ******************************************                                              |
+      100 |-+            **********************************************                                           +-|
+          |              **********************************************  **   **                                    |
+       50 |-+            *********************************************************** ***                          +-|
+          |            ************************************************************************ **  **              |
+          | +    +  ********************************************************************************************+***|
+        0 +---------------------------------------------------------------------------------------------------------+
+            15   30   45    60   75   90  105   120  135  150   165  180  195  210   225  240  255   270  285  300
+                                                          Mean Depth
+
+If distrubtion looks normal, a 1.645 sigma cutoff (~90% of the data) would be 5552.7585
+The 95% cutoff would be 283
+Would you like to use a different maximum mean depth cutoff than 283, yes or no
+no
+Number of sites filtered based on maximum mean depth
+ 1825 of 34218
+
+Number of sites filtered based on within locus depth mismatch
+ 29 of 32393
+
+Total number of sites filtered
+ 19778 of 52142
+Remaining sites
+ 32364
+
+Filtered VCF file is called dDocent_filters_out.FIL.recode.vcf
+
+Filter stats stored in dDocent_filters_out.filterstats
+
+```
+
+7. Convert our variant calls to SNPs
+
+```shell
+vcfallelicprimitives dDocent_filters_out.FIL.recode.vcf --keep-info --keep-geno > DP3g95p5maf001.prim.vcf
+vcftools --vcf DP3g95p5maf001.prim.vcf --remove-indels --recode --recode-INFO-all --out SNP.DP3g95p5maf001
+
+```
+
+#### Cluster 1: 
+
+```shell
+
+After filtering, kept 26 out of 26 Individuals
+Outputting VCF file...
+After filtering, kept 44838 out of a possible 47509 Sites
+```
+
+#### Cluster 2: 
+
+```shell
+After filtering, kept 18 out of 18 Individuals
+Outputting VCF file...
+After filtering, kept 34905 out of a possible 37139 Sites
+
+```
+
+8. HWE filter
+
+Setting -h 0.001
+
+`./filter_hwe_by_pop.pl -v SNP.DP3g95p5maf001.recode.vcf -p popmap -o SNP.DP3g95p5maf001.HWE -h 0.001`
+
+#### Cluster 1: 
+
+```shell
+
+Processing population: EOB (6 inds)
+Processing population: PBF (6 inds)
+Processing population: WOB (1 inds)
+Processing population: WOF (13 inds)
+Outputting results of HWE test for filtered loci to 'filtered.hwe'
+Kept 44838 of a possible 44838 loci (filtered 0 loci)
+```
+
+#### CLuster 2: 
+
+```shell
+Processing population: EOB (8 inds)
+Processing population: WOB (10 inds)
+Outputting results of HWE test for filtered loci to 'filtered.hwe'
+Kept 34905 of a possible 34905 loci (filtered 0 loci)
+
+```
+9. rad_haplotyper
+
+Made symlinks for bam and their indexes from ddr_snp_calling to snp_filtering since they are required by rad_haplotyper
+
+#### Cluster 1: 
+
+```shell
+
+rad_haplotyper.pl -v SNP.DP3g95p5maf001.HWE.recode.vcf -x 20 -mp 1 -u 20 -ml 4 -n -r reference.fasta
+Removed 77 loci (1898 SNPs) with more than 20 SNPs at a locus
+Building haplotypes for EOB_174_ddr
+Building haplotypes for EOB_175_ddr
+Building haplotypes for EOB_185_ddr
+Building haplotypes for EOB_189_ddr
+Building haplotypes for EOB_190_ddr
+Building haplotypes for EOB_192_ddr
+Building haplotypes for PBF_158_ddr
+Building haplotypes for PBF_161_ddr
+Building haplotypes for PBF_164_ddr
+Building haplotypes for PBF_169_ddr
+Building haplotypes for PBF_171_ddr
+Building haplotypes for PBF_172_ddr
+Building haplotypes for WOB_35_ddr
+Building haplotypes for WOF_224_ddr
+Building haplotypes for WOF_225_ddr
+Building haplotypes for WOF_232_ddr
+Building haplotypes for WOF_234_ddr
+Building haplotypes for WOF_236_ddr
+Building haplotypes for WOF_237_ddr
+Building haplotypes for WOF_238_ddr
+Building haplotypes for WOF_239_ddr
+Building haplotypes for WOF_240_ddr
+Building haplotypes for WOF_241_ddr
+Building haplotypes for WOF_243_dd
+Building haplotypes for WOF_244_ddr
+Building haplotypes for WOF_245_ddr
+Filtered 170 loci below missing data cutoff
+Filtered 1183 possible paralogs
+Filtered 258 loci with low coverage or genotyping errors
+Filtered 0 loci with an excess of haplotypes
+
+head stats.out
+rad_haplotyper -v SNP.DP3g95p5maf001.HWE.recode.vcf -x 20 -mp 1 -u 20 -ml 4 -n -r reference.fasta
+Locus   Sites   Haplotypes      Inds_Haplotyped Total_Inds      Prop_Haplotyped Status  Poss_Paralog    Low_Cov/Geno_Err        Miss_Geno       Comment
+dDocent_Contig_1        1       2       26      26      1.000   PASSED  0       0       0
+dDocent_Contig_100      2       3       26      26      1.000   PASSED  0       0       0
+dDocent_Contig_10000    5       8       26      26      1.000   PASSED  0       0       0
+dDocent_Contig_10001    1       2       25      26      0.962   PASSED  0       0       1
+dDocent_Contig_10003    3       3       26      26      1.000   PASSED  0       0       0
+dDocent_Contig_10006    9       8       26      26      1.000   PASSED  0       0       0
+dDocent_Contig_10009    3       4       26      26      1.000   PASSED  0       0       0
+dDocent_Contig_10011    2       3       25      26      0.962   PASSED  0       1       0
+
+grep FILTERED stats.out | mawk '!/Complex/' | cut -f1 > loci.to.remove
+
+./remove.bad.hap.loci.sh loci.to.remove SNP.DP3g95p5maf001.HWE.recode.vcf
+
+mawk '!/#/' SNP.DP3g95p5maf001.HWE.filtered.vcf | wc -l
+30167
+
+```
+
+**Number of loci post filtration in cluster 1: 30167**
+
+#### Cluster 2: 
+
+```shell
+rad_haplotyper.pl -v SNP.DP3g95p5maf001.HWE.recode.vcf -x 20 -mp 1 -u 20 -ml 4 -n -r reference.fasta
+Removed 57 loci (1377 SNPs) with more than 20 SNPs at a locus
+Building haplotypes for EOB_177_ddr
+Building haplotypes for EOB_178_ddr
+Building haplotypes for EOB_182_ddr
+Building haplotypes for EOB_183_ddr
+Building haplotypes for EOB_184_ddr
+Building haplotypes for EOB_186_ddr
+Building haplotypes for EOB_188_ddr
+Building haplotypes for EOB_191_ddr
+Building haplotypes for WOB_41_ddr
+Building haplotypes for WOB_42_ddr
+Building haplotypes for WOB_47_ddr
+Building haplotypes for WOB_48_ddr
+Building haplotypes for WOB_59_ddr
+Building haplotypes for WOB_49_ddr
+Building haplotypes for WOB_50_ddr
+Building haplotypes for WOB_60_ddr
+Building haplotypes for WOB_62_ddr
+Building haplotypes for WOB_65_ddr
+Filtered 173 loci below missing data cutoff
+Filtered 842 possible paralogs
+Filtered 155 loci with low coverage or genotyping errors
+Filtered 0 loci with an excess of haplotypes
+
+head stats.out
+rad_haplotyper -v SNP.DP3g95p5maf001.HWE.recode.vcf -x 20 -mp 1 -u 20 -ml 4 -n -r reference.fasta
+Locus   Sites   Haplotypes      Inds_Haplotyped Total_Inds      Prop_Haplotyped Status  Poss_Paralog    Low_Cov/Geno_Err        Miss_Geno       Comment
+dDocent_Contig_1        1       2       18      18      1.000   PASSED  0       0       0
+dDocent_Contig_10000    1       2       18      18      1.000   PASSED  0       0       0
+dDocent_Contig_10001    4       6       18      18      1.000   PASSED  0       0       0
+dDocent_Contig_10003    18      10      14      18      0.778   FILTERED        0       4       0       Missing data
+dDocent_Contig_10004    5       6       18      18      1.000   PASSED  0       0       0
+dDocent_Contig_10006    2       3       18      18      1.000   PASSED  0       0       0
+dDocent_Contig_10007    1       2       18      18      1.000   PASSED  0       0       0
+dDocent_Contig_10008    4       3       17      18      0.944   PASSED  1       0       0
+
+grep FILTERED stats.out | mawk '!/Complex/' | cut -f1 > loci.to.remove
+./remove.bad.hap.loci.sh loci.to.remove SNP.DP3g95p5maf001.HWE.recode.vcf
+mawk '!/#/' SNP.DP3g95p5maf001.HWE.filtered.vcf | wc -l
+24135
+
+```
+
+**Number of loci post filtration in cluster 2: 24135**
+
+
+**Statistical analysis was performed using the script genetic_variation.R that takes the above vcf as input.**
 
 
 
